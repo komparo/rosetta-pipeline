@@ -1,0 +1,49 @@
+name: snakemake
+
+incrementality:
+  input:
+    data: 
+      levels: modification date
+    scripts: 
+      levels: content
+    parameters: 
+      levels: content
+    environment: 
+      levels: version
+  default: true
+  notes:
+    - Not default for scripts
+
+environment:
+  supported:
+    - docker
+    - singularity
+    - conda
+  notes:
+    - Docker environments are converted to singularity
+    - Conda environments can be combined within singularity
+
+interface:
+  supported:
+    - cli
+
+specification:
+  - snakemake
+  - CWL
+
+provenance:
+
+execution:
+  supported:
+    -
+
+
+validation:
+
+
+development:
+  debugging:
+    supported:
+    notes:
+      - Easy for python
+      - More difficult for R, requires a `save.image` call

@@ -1,0 +1,10 @@
+rule all:
+    input: "hello-world.md", "bye-world.md"
+
+rule hello:
+    output: "hello-world.md"
+    shell: "echo 'hello world' > {output}"
+
+rule bye:
+    output: "bye-world.md"
+    shell: "echo 'bye world' > {output}"

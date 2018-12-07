@@ -1,0 +1,1 @@
+FROM nextflow/nextflow

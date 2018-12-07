@@ -1,0 +1,4 @@
+type:
+- pull
+wildcards: true
+language: python

@@ -1,0 +1,4 @@
+name: Bye world
+id: bye-world
+description: >
+    First write `hello world` to "hello-world.md", than write `bye world` to "bye-world.md"
