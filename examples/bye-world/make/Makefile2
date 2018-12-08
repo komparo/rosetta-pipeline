@@ -1,0 +1,8 @@
+all: hello-world.md bye-world.md
+.PHONE: all
+
+hello-world.md:
+	echo "Hello world" > $@
+
+bye-world.md:
+	echo "Bye world" > $@

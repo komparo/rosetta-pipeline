@@ -1,15 +1,20 @@
+import glob
+
 EXAMPLES = {
-    "make": ["hello-world"],
+    "make": ["hello-world", "bye-world"],
     "snakemake": ["hello-world", "bye-world"],
-    "nextflow": ["hello-world"]
+    "nextflow": ["hello-world", "bye-world"]
 }
 
 FRAMEWORK_IDS = EXAMPLES.keys()
+EXAMPLES = [[framework_id, example_id] for framework_id, examples in EXAMPLES.items() for example_id in examples]
+
+#########
 
 rule all:
     input:
         ["output/index.html"] +
-        [f"output/examples/{example_id}/{framework_id}/result.yml" for framework_id, examples in EXAMPLES.items() for example_id in examples]
+        [f"output/examples/{example_id}/{framework_id}/result.yml" for framework_id, example_id in EXAMPLES]
         
 
 rule docker:
@@ -31,13 +36,19 @@ rule site:
     shell:
         "echo {input} > {output}"
 
+# function to get all files within the example folder as input
+def list_example_inputs(wildcards):
+    example_folder = f"examples/{wildcards.example_id}/{wildcards.framework_id}/"
+    example_run = example_folder + "run.sh"
+    example_files = glob.glob(example_folder + "*")
+    return example_files
+
 rule run_example:
-    input:
-        example_folder = "examples/{example_id}/{framework_id}/",
-        example_script = "examples/{example_id}/{framework_id}/run.sh",
-        digest = "output/container_digests/{framework_id}"
+    input: list_example_inputs
     output:
         "output/examples/{example_id}/{framework_id}/result.yml"
+    log:
+        "output/examples/{example_id}/{framework_id}/log"
     shell:
         """
             rm -r output/examples/{wildcards.example_id}/{wildcards.framework_id}
@@ -49,7 +60,8 @@ rule run_example:
                 -w /output \
                 -u 1000 \
                 rosettapipeline/{wildcards.framework_id} \
-                bash /output/run.sh
+                bash /output/run.sh \
+                > {log}
 
             echo "true" > {output}
         """
