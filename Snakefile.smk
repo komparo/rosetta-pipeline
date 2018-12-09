@@ -3,7 +3,8 @@ import glob
 EXAMPLES = {
     "make": ["hello-world", "bye-world"],
     "snakemake": ["hello-world", "bye-world"],
-    "nextflow": ["hello-world", "bye-world"]
+    "nextflow": ["hello-world", "bye-world"],
+    "luigi": ["hello-world", "bye-world"]
 }
 
 FRAMEWORK_IDS = EXAMPLES.keys()
@@ -41,7 +42,10 @@ def list_example_inputs(wildcards):
     example_folder = f"examples/{wildcards.example_id}/{wildcards.framework_id}/"
     example_run = example_folder + "run.sh"
     example_files = glob.glob(example_folder + "*")
-    return example_files
+
+    example_container_digest = f"output/container_digests/{wildcards.framework_id}"
+
+    return example_files + [example_container_digest]
 
 rule run_example:
     input: list_example_inputs
@@ -61,7 +65,7 @@ rule run_example:
                 -u 1000 \
                 rosettapipeline/{wildcards.framework_id} \
                 bash /output/run.sh \
-                > {log}
+                &>> {log}
 
             echo "true" > {output}
         """
