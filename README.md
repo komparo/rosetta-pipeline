@@ -1,4 +1,4 @@
-# A comparison of different pipeline frameworks
+# Comparing pipeline frameworks
 
 [A lot of pipeline frameworks (aka workflow managers) exist](https://github.com/pditommaso/awesome-pipeline), each containing a variaible (and sometimes exotic) syntax.
 
