@@ -6,7 +6,8 @@ EXAMPLES = {
     "nextflow": ["hello-world", "bye-world"],
     "luigi": ["hello-world", "bye-world"],
     "airflow": ["hello-world"],
-    "toil": ["hello-world"]
+    "toil": ["hello-world"],
+    "cromwell": ["hello-world"]
 }
 
 FRAMEWORK_IDS = EXAMPLES.keys()
