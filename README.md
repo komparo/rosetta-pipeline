@@ -1,6 +1,6 @@
 # Comparing pipeline frameworks
 
-[A lot of pipeline frameworks (aka workflow managers) exist](https://github.com/pditommaso/awesome-pipeline), each containing a variaible (and sometimes exotic) syntax.
+[A lot of pipeline frameworks (aka workflow managers) exist](https://github.com/pditommaso/awesome-pipeline), each containing a different (and sometimes exotic) syntax.
 
 Here we try to:
 
@@ -9,3 +9,8 @@ Here we try to:
 - List the features of each framework in a consistent way. See the [characterisation folder](characterisation).
 
 Docker files to install each workflow manager are provided in the [containers](containers) folder. These are used for continuous integration of the example workflows.
+
+
+# Further reading
+
+- [Sam Minot on how an ideal workflow manager looks like](https://www.minot.bio/home/2018/9/22/the-rise-of-the-machines-workflow-managers-for-bioinformatics)
