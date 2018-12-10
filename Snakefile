@@ -5,7 +5,7 @@ EXAMPLES = {
     "snakemake": ["hello-world", "bye-world"],
     "nextflow": ["hello-world", "bye-world"],
     "luigi": ["hello-world", "bye-world"],
-    "airflow": []
+    "airflow": ["hello-world"]
 }
 
 FRAMEWORK_IDS = EXAMPLES.keys()
