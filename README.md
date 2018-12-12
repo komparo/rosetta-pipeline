@@ -26,10 +26,10 @@ installed.
 ## Contributing
 
 We welcome contributions of any kind. See
-[CONTRIBUTING.md](CONTRIBUTING.md).
+[contributing.md](contributing.md).
 
 A contribution implies that you agree with the [Code of
-conduct](CODE_OF_CONDUCT.md).
+conduct](code_of_conduct.md).
 
 ## Further reading
 
