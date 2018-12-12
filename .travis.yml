@@ -3,24 +3,13 @@ language: python
 python:
   - "3.6"
 
-cache:
-  timeout: 604800
-  directories:
-    - $HOME/miniconda
-
 services:
   - docker
 
-jobs:
+matrix:
   include:
-    - stage: prepare cache
-      script: true
-    - stage: test
-      name: snakemake
-      install: true
-      script:
-        - source activate rosettapipeline
-        - snakemake --config framework_id=${TRAVIS_JOB_NAME}
+    - name: snakemake
+    - name: nextflow
 
 install:
   - sudo apt-get update
@@ -30,3 +19,7 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda env create -f environment.yml
+
+script:
+  - source activate rosettapipeline
+  - snakemake --config framework_id=${TRAVIS_JOB_NAME}
