@@ -18,14 +18,14 @@ Docker files to install each workflow manager are provided in the
 [containers](containers) folder. These are used for continuous
 integration of the example workflows.
 
-# Frameworks
+## Frameworks
 
-# Contributing
+## Contributing
 
 Contributions of any kind are greatly . A contributions implies that you
 agree with the [CODE\_OF\_CONDUCT](CODE_OF_CONDUCT.md).
 
-# Further reading
+## Further reading
 
   - [Sam Minot on how an ideal workflow manager looks
     like](https://www.minot.bio/home/2018/9/22/the-rise-of-the-machines-workflow-managers-for-bioinformatics)
