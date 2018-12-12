@@ -16,7 +16,7 @@ Here we try to create:
   - **[A working document on the similarities and differences between
     pipeline frameworks](frameworks.md)**.
   - **[A characterisation of the features of each
-    framework.](characterisation)**, structured in the same way as the
+    framework](characterisation)**, structured in the same way as the
     working document.
 
 ## Frameworks
@@ -24,10 +24,13 @@ Here we try to create:
 ## Running the examples
 
 We install and run each framework inside a [docker
-container](containers). The complete set of examples can be run by: 1.
-Installing conda and docker 2. Clone this repo 3. Installing the conda
-environment: `conda create --name rosettapipeline --file
-environment.yml` 4. Running snakemake: `snakemake`
+container](containers). The complete set of examples can be run by:
+
+1.  Installing conda and docker
+2.  Clone this repo
+3.  Installing the conda environment: `conda create --name
+    rosettapipeline --file environment.yml`
+4.  Running snakemake: `snakemake`
 
 ## Contributing
 

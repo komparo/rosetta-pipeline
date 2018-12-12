@@ -14,7 +14,7 @@ Here we try to create:
 
 - **[Example workflows for each framework on some common workflow patterns](tasks)**, similar as done by the [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code) project. They showcase how each workflow manager is used, and where the similarities and differences lie.
 - **[A working document on the similarities and differences between pipeline frameworks](frameworks.md)**.
-- **[A characterisation of the features of each framework.](characterisation)**, structured in the same way as the working document.
+- **[A characterisation of the features of each framework](characterisation)**, structured in the same way as the working document.
 
 ## Frameworks
 
@@ -26,6 +26,7 @@ list.files("tasks")
 
 We install and run each framework inside a [docker container](containers). 
 The complete set of examples can be run by:
+
 1. Installing conda and docker
 2. Clone this repo
 3. Installing the conda environment: `conda create --name rosettapipeline --file environment.yml`
