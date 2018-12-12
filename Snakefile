@@ -8,7 +8,7 @@ FRAMEWORK_EXAMPLES = {
     "luigi": ["write-file", "write-file-incremental"],
     "airflow": ["write-file"],
     "toil": ["write-file"],
-    "cromwell": ["write-file"],
+    "cromwell": ["write-file", "write-file-incremental"],
     "drake": ["write-file"]
 }
 
@@ -62,10 +62,10 @@ rule run_example:
                 --mount type=bind,source=$(pwd)/output/tasks/{wildcards.example_id}/{wildcards.framework_id},target=/output \
                 --rm \
                 -w /output \
-                -u $(id -u):$(id -g) \
+                -v /var/run/docker.sock:/var/run/docker.sock \
                 rosettapipeline/{wildcards.framework_id} \
                 bash /output/run.sh \
-                &>> {log}
+                2>&1 | tee {log}
 
             echo "true" > {output}
         """
