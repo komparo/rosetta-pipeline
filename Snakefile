@@ -1,23 +1,23 @@
 import glob
 
-EXAMPLES = {
-    "make": ["hello-world", "bye-world"],
-    "snakemake": ["hello-world", "bye-world"],
-    "nextflow": ["hello-world", "bye-world"],
-    "luigi": ["hello-world", "bye-world"],
-    "airflow": ["hello-world"],
-    "toil": ["hello-world"],
-    "cromwell": ["hello-world"],
-    "drake": ["hello-world"]
+FRAMEWORK_EXAMPLES = {
+    "make": ["write-file", "write-file-incremental"],
+    "snakemake": ["write-file", "write-file-incremental"],
+    "nextflow": ["write-file", "write-file-incremental"],
+    "luigi": ["write-file", "write-file-incremental"],
+    "airflow": ["write-file"],
+    "toil": ["write-file"],
+    "cromwell": ["write-file"],
+    "drake": ["write-file"]
 }
 
-FRAMEWORK_IDS = EXAMPLES.keys()
-EXAMPLES = [[framework_id, example_id] for framework_id, examples in EXAMPLES.items() for example_id in examples]
+FRAMEWORK_IDS = FRAMEWORK_EXAMPLES.keys()
+EXAMPLES = [[framework_id, example_id] for framework_id, example_ids in FRAMEWORK_EXAMPLES.items() for example_id in example_ids]
 
 rule all:
     input:
         ["output/index.html", "README.md"] +
-        [f"output/examples/{example_id}/{framework_id}/result.yml" for framework_id, example_id in EXAMPLES]
+        [f"output/tasks/{example_id}/{framework_id}/result.yml" for framework_id, example_id in EXAMPLES]
 
 rule docker:
     input:
@@ -40,7 +40,7 @@ rule site:
 
 # function to get all files within the example folder as input
 def list_example_inputs(wildcards):
-    example_folder = f"examples/{wildcards.example_id}/{wildcards.framework_id}/"
+    example_folder = f"tasks/{wildcards.example_id}/{wildcards.framework_id}/"
     example_run = example_folder + "run.sh"
     example_files = glob.glob(example_folder + "*")
 
@@ -51,16 +51,16 @@ def list_example_inputs(wildcards):
 rule run_example:
     input: list_example_inputs
     output:
-        "output/examples/{example_id}/{framework_id}/result.yml"
+        "output/tasks/{example_id}/{framework_id}/result.yml"
     log:
-        "output/examples/{example_id}/{framework_id}/log"
+        "output/tasks/{example_id}/{framework_id}/log"
     shell:
         """
-            rm -r output/examples/{wildcards.example_id}/{wildcards.framework_id}
-            cp -r examples/{wildcards.example_id}/{wildcards.framework_id} output/examples/{wildcards.example_id}/
+            rm -r output/tasks/{wildcards.example_id}/{wildcards.framework_id}
+            cp -r tasks/{wildcards.example_id}/{wildcards.framework_id} output/tasks/{wildcards.example_id}/
 
             docker run \
-                --mount type=bind,source="$(pwd)"/output/examples/{wildcards.example_id}/{wildcards.framework_id},target=/output \
+                --mount type=bind,source="$(pwd)"/output/tasks/{wildcards.example_id}/{wildcards.framework_id},target=/output \
                 --rm \
                 -w /output \
                 -u 1000 \
@@ -72,7 +72,7 @@ rule run_example:
         """
 
 rule aggregate_examples:
-    input: expand("output/examples/*/result.yml")
+    input: expand("output/tasks/*/result.yml")
     output: "output/examples.tsv"
     script: "aggregate_examples.R"
 
