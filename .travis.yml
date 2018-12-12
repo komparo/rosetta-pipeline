@@ -3,12 +3,18 @@ language: python
 python:
   - "3.6"
 
+cache:
+  directories:
+    - $HOME/miniconda
+
 services:
   - docker
 
-matrix:
+jobs:
   include:
-    - name: "snakemake"
+    - stage: prepare cache
+    - stage: test
+      name: snakemake
       env: FRAMEWORK_ID=snakemake
 
 install:
