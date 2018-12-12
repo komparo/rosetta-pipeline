@@ -1,4 +1,23 @@
-# Workflow frameworks
+# Pipeline frameworks
+
+Briefly, a pipeline framework specifies a set of tasks (**specification**), each with some **inputs** and **outputs**. It can also keep track of how tasks are run (**execution**), track which tasks were used to produce a particular output (**provenance**), and where input and output data is stored (**storage**).
+
+## Specification
+
+> Specifying the workflow
+
+### Language
+
+There are different ways to specify the tasks of a workflow:
+
+- Flat: Flat JSON or YAML files. 
+- Domain specific language (DSL): A language specifically created for defining workflows. The specification is completely interpreted by the framework.
+- Hybrid: A combination of a DSL and a multi-purpose programming language. While the specification is still interpreted using the framework, parts of it are evaluated within the programming language.
+- Programming language: A multi-purpose language in which the workflow is specified, for example by using its object-oriented or functional features.
+
+### Connecting tasks
+
+
 
 ## Inputs
 
@@ -6,42 +25,48 @@
 
 A task and workflow can only be reproducible when all possible inputs are defined.
 
-### Files
+### Types
+
+There are different types of inputs
+
+#### Files
 
 Any data file, which can be present locally, on a shared files system, on the cloud or on some other web server.
 
-### Command
+#### Command
 
 The code or command that is run by the task.
 
 Most frameworks run a command by default inside the default shell of the environment. Others, such as drake and toil, specifiy the code to be run within the specification language.
 
-Some frameworks wrap some common commands 
+Some frameworks provide wrappers for some common shell commands:
 
- framework makes it possible to run a command inside the default shell environment. Some frameworks also wrap 
+* Direct rendering of R Markdown files: snakemake
+* Running a script: snakemake (R and python)
 
-* Snakemake makes it possible to render an RMarkdown file
-* 
-
-### Parameters
+#### Parameters
 
 Values defined directly inside the workflow specification.
 
-Only some frameworks allow this type of input. It can be easily mimicked by specifying the parameters inside data files.
+Not all frameworks allow this kind of input. It can be easily mimicked by specifying the parameters inside data files.
 
-### Environments
+#### Environments
 
 Where the code is run. Environments can be constrained at different levels:
 
-- Nothing: execute everything in an existing environment (usually in the same environment on which the framework is installed), without specifying this environment in the workflow specification
-- Package manager: the libraries or packages installed by one or more package managers are specified. Examples: conda
-- OS: the full operating system, its libraries, and any language specific libraries are specified. Examples: virtual machines, docker containers, singularity containers
+- Nothing: Execute everything in an existing environment, without defining how this environment can be created. Example: the local environment on which the pipeline is executed
+- Package manager: Specifying the libraries/packages and their versions which are installed on the system. Examples: conda
+- OS: Specifying the full operating system and its libraries. Examples: virtual machines, docker containers, singularity containers
 
-### Random state
+#### Random state
 
 The random state of the environment. For example, the seed of the pseudorandom number generator.
 
 This type of input is ignored by nearly every framework.
+
+### Reproducibility
+
+The reproducibility of a pipeline is determined by how much of the inputs are specified
 
 ## Outputs
 
@@ -49,10 +74,6 @@ This type of input is ignored by nearly every framework.
 
 - files
 - objects which are used as parameters of subsequent tasks
-
-## Specification
-
-> Specifying how the inputs produce the outputs
 
 ### Static vs dynamic
 
