@@ -59,10 +59,10 @@ rule run_example:
             cp -r tasks/{wildcards.example_id}/{wildcards.framework_id} output/tasks/{wildcards.example_id}/
 
             docker run \
-                --mount type=bind,source="$(pwd)"/output/tasks/{wildcards.example_id}/{wildcards.framework_id},target=/output \
+                --mount type=bind,source=$(pwd)/output/tasks/{wildcards.example_id}/{wildcards.framework_id},target=/output \
                 --rm \
                 -w /output \
-                -u 1000 \
+                -u $(id -u):$(id -g) \
                 rosettapipeline/{wildcards.framework_id} \
                 bash /output/run.sh \
                 &>> {log}
