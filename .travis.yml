@@ -13,9 +13,10 @@ services:
 jobs:
   include:
     - stage: prepare cache
+      script: false
     - stage: test
       name: snakemake
-      env: FRAMEWORK_ID=snakemake
+      install: false
 
 install:
   - sudo apt-get update
@@ -28,4 +29,4 @@ install:
 
 script:
   - source activate rosettapipeline
-  - snakemake --config framework_id=${FRAMEWORK_ID}
+  - snakemake --config framework_id=${TRAVIS_JOB_NAME}
