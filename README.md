@@ -21,7 +21,7 @@ Here we try to create:
 
 ## Frameworks
 
-## Running the examples
+## Running the tasks
 
 We install and run each framework inside a [docker
 container](containers). The complete set of examples can be run by:
