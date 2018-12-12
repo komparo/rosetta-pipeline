@@ -2,41 +2,90 @@
 
 ## Inputs
 
-> That which is consumed by a task
+> What is consumed by a task
+
+A task and workflow can only be reproducible when all possible inputs are defined.
 
 ### Files
 
-Any data file, can also be a script.
+Any data file, which can be present locally, on a shared files system, on the cloud or on some other web server.
 
-### Script
+### Command
 
-The script that is run by the task. This can be simply a command, or a longer script sometimes provided as a separate file. 
+The code or command that is run by the task.
+
+Most frameworks run a command by default inside the default shell of the environment. Others, such as drake and toil, specifiy the code to be run within the specification language.
+
+Some frameworks wrap some common commands 
+
+ framework makes it possible to run a command inside the default shell environment. Some frameworks also wrap 
+
+* Snakemake makes it possible to render an RMarkdown file
+* 
 
 ### Parameters
 
-Objects defined directly inside the workflow specification.
+Values defined directly inside the workflow specification.
+
+Only some frameworks allow this type of input. It can be easily mimicked by specifying the parameters inside data files.
 
 ### Environments
 
 Where the code is run. Environments can be constrained at different levels:
 
-- Nothing: execute everything locally, without specifying which libraries are installed
-- Language packages: the packages available for a particular language (e.g. python or R) are specified. Examples: conda
+- Nothing: execute everything in an existing environment (usually in the same environment on which the framework is installed), without specifying this environment in the workflow specification
+- Package manager: the libraries or packages installed by one or more package managers are specified. Examples: conda
 - OS: the full operating system, its libraries, and any language specific libraries are specified. Examples: virtual machines, docker containers, singularity containers
 
 ### Random state
 
-The random state of the environment. For example, the seed of the pseudorandom number generator in python or R
+The random state of the environment. For example, the seed of the pseudorandom number generator.
+
+This type of input is ignored by nearly every framework.
 
 ## Outputs
 
-> That which is produced by a task
+> What is produced by a task
 
 - files
+- objects which are used as parameters of subsequent tasks
 
-### Provenance
+## Specification
 
-> How was a particular output produced?
+> Specifying how the inputs produce the outputs
+
+### Static vs dynamic
+
+Things such as conditionality depending on some outputs, on failure
+
+### Pull vs push
+
+Some specifications use 
+
+
+
+## Incrementality
+
+> Tasks are not needlessly rerun
+
+Also known as **caching**
+
+Related examples: _bye-world_
+
+### Levels of incrementality
+
+Each type of input can be incremental at different levels:
+
+- version (e.g. a docker tag)
+- modification date
+- file size
+- content (such as a digest)
+
+Only the latter provides full reproducibility and can be used for any type of input. However, for large data it can be time consuming to compare the content.
+
+## Provenance
+
+> Keeping track of how an output was created
 
 Provenance is a prerequisite for
 
@@ -52,26 +101,16 @@ Provenance can be defined for different types of input.
 > Where are the tasks ran?
 
 - Local
-- Grid
+- Batch system
 - Container orchestration
+- Cloud systems
 
-Some systems are better suited 
+Tightly linked with data storage.
 
-### Incrementality
+### Resources
 
-> When I change a part of the workflow, does it only rerun those tasks that need to be rerun?
+> 
 
-Also known as **caching**
+### Usability
 
-Related examples: _bye-world_
-
-#### Levels of incrementality
-
-Each type of input can be incremental at different levels:
-
-- version (e.g. a docker tag)
-- modification date
-- file size
-- content (such as a digest)
-
-Only the latter provides full reproducibility and can be used for any type of input. However, for large data it can be time consuming to compare the content.
+## Storage
