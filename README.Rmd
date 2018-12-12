@@ -43,6 +43,7 @@ A contribution implies that you agree with the [Code of conduct](code_of_conduct
 ### Opinions
 
 - [Sam Minot on how an ideal workflow manager looks like](https://www.minot.bio/home/2018/9/22/the-rise-of-the-machines-workflow-managers-for-bioinformatics)
+- [Experiences when creating an RNA-seq pipeline](https://github.com/NCBI-Hackathons/SPeW)
 
 ### Lists and rankings
 
@@ -51,4 +52,4 @@ A contribution implies that you agree with the [Code of conduct](code_of_conduct
 
 ### Reviews
 
-- ["A review of bioinformatic pipeline frameworks" by Jeremy Leipzig](https://doi.org/10.1093/bib/bbw020) (@leipzig)
+- ["A review of bioinformatic pipeline frameworks" by Jeremy Leipzig](https://doi.org/10.1093/bib/bbw020) [@leipzig](https://github.com/leipzig)
