@@ -10,14 +10,16 @@ Briefly, a pipeline framework specifies a set of tasks (**specification**), each
 
 There are different ways to specify the tasks of a workflow:
 
-- Flat: Flat JSON or YAML files. 
+- Flat: Flat JSON or YAML files.
 - Domain specific language (DSL): A language specifically created for defining workflows. The specification is completely interpreted by the framework.
 - Hybrid: A combination of a DSL and a multi-purpose programming language. While the specification is still interpreted using the framework, parts of it are evaluated within the programming language.
 - Programming language: A multi-purpose language in which the workflow is specified, for example by using its object-oriented or functional features.
 
-### Connecting tasks
+### Constructing the DAG
 
+Dependencies between tasks can be directly specified between tasks themselves (examples: luigi) or between output and input data (examples: snakemake, nextflow, cwl).
 
+Connecting tasks through data streams is a requirement for proper [incrementality](#incrementality), but also . In the 'push' idea (also known as data flow), a task is ran for every input 
 
 ## Inputs
 
