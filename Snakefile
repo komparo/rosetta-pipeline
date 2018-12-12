@@ -7,19 +7,17 @@ EXAMPLES = {
     "luigi": ["hello-world", "bye-world"],
     "airflow": ["hello-world"],
     "toil": ["hello-world"],
-    "cromwell": ["hello-world"]
+    "cromwell": ["hello-world"],
+    "drake": ["hello-world"]
 }
 
 FRAMEWORK_IDS = EXAMPLES.keys()
 EXAMPLES = [[framework_id, example_id] for framework_id, examples in EXAMPLES.items() for example_id in examples]
 
-#########
-
 rule all:
     input:
-        ["output/index.html"] +
+        ["output/index.html", "README.md"] +
         [f"output/examples/{example_id}/{framework_id}/result.yml" for framework_id, example_id in EXAMPLES]
-        
 
 rule docker:
     input:
@@ -72,3 +70,14 @@ rule run_example:
 
             echo "true" > {output}
         """
+
+rule aggregate_examples:
+    input: expand("output/examples/*/result.yml")
+    output: "output/examples.tsv"
+    script: "aggregate_examples.R"
+
+rule render_readme:
+    output: "README.md"
+    input: "README.Rmd"
+    params: EXAMPLES
+    script: "README.Rmd"
