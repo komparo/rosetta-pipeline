@@ -51,8 +51,8 @@ conduct](code_of_conduct.md).
 
   - [An awesome list of
     frameworks](https://github.com/pditommaso/awesome-pipeline)
-  - [Popularity ranking of tools based on
-    popularity](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
+  - [Popularity ranking of tools
+    based](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
 
 ### Reviews
 

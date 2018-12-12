@@ -47,7 +47,7 @@ A contribution implies that you agree with the [Code of conduct](code_of_conduct
 ### Lists and rankings
 
 - [An awesome list of frameworks](https://github.com/pditommaso/awesome-pipeline)
-- [Popularity ranking of tools based on popularity](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
+- [Popularity ranking of tools based](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
 
 ### Reviews
 
