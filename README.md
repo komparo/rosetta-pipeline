@@ -1,14 +1,17 @@
 
 # Rosetta pipeline: A showcase and characterisation of pipeline frameworks
 
+[![Build
+Status](https://travis-ci.com/komparo/rosetta-pipeline.svg?branch=master)](https://travis-ci.com/komparo/rosetta-pipeline)
+
 [A lot of pipeline frameworks
 exist](https://github.com/pditommaso/awesome-pipeline), each containing
 a different (and sometimes exotic) syntax. Because of this, it can be
-confusing to select the appropriate framework for a particular use case.
+confusing to choose the appropriate framework for a particular use case.
 
 Here we try to create:
 
-  - **[Example workflows for each framework on some common workflow
+  - **[Example workflows for each framework with some common workflow
     patterns](tasks)**, similar as done by the [Rosetta
     code](http://www.rosettacode.org/wiki/Rosetta_Code) project. They
     showcase how each workflow manager is used, and where the
@@ -60,4 +63,4 @@ conduct](code_of_conduct.md).
 
   - [“A review of bioinformatic pipeline frameworks” by Jeremy
     Leipzig](https://doi.org/10.1093/bib/bbw020)
-    \[@leipzig\](<https://github.com/leipzig>)
+    (<https://github.com/leipzig>)
