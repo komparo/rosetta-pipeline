@@ -10,12 +10,13 @@ output:
 
 [A lot of pipeline frameworks (aka workflow managers) exist](https://github.com/pditommaso/awesome-pipeline), each containing a different (and sometimes exotic) syntax.
 
-This repo lists for each framework:
+This repo includes:
 
-- [Some example workflows](/examples), similar as done by the [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code) project. These are useful as a cookbook to compare workflow framework, and highlight their good aspects. All examples can be run using a snakemake workflow (see the [Snakefile](Snakefile)).
-- A characterisation of their features.
+- [Example workflows for each framework](/examples), similar as done by the [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code) project.
+- [A working document on the similarities and differences between pipeline frameworks.](frameworks.md).
+- [A characterisation of the features of each framework.](characterisation). It is structured in the same way as the working document.
 
-Docker files to install each workflow manager are provided in the [containers](containers) folder. These are used for continuous integration of the example workflows.
+We install and run each framework inside a [docker container](containers). The complete set of examples can be run by installing snakemake and by running `snakemake`. Make sure docker is installed.
 
 ## Frameworks
 
@@ -27,7 +28,12 @@ Docker files to install each workflow manager are provided in the [containers](c
 
 ## Contributing
 
-Contributions of any kind are greatly . A contributions implies that you agree with the [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md).
+We welcome contributions of any kind. Some possibilities:
+
+- Add a new example which highlights the advantage of a particular framework. Each example should contain a "run.sh" file which contains the command that will be run inside the container of the framework.
+- Update or expand the working document.
+
+A contribution implies that you agree with the [Code of conduct](CODE_OF_CONDUCT.md).
 
 ## Further reading
 
