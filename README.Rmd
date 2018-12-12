@@ -1,8 +1,4 @@
 ---
-title: "Test Report"
-author:
-    - "Your Name"
-date: "`r format(Sys.time(), '%d %B, %Y')`"
 params:
    rmd: "README.Rmd"
 output:

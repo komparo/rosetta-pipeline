@@ -1,7 +1,3 @@
-Test Report
-================
-Your Name
-12 December, 2018
 
 # Comparing pipeline frameworks
 
