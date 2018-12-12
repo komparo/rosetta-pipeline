@@ -1,17 +1,19 @@
 
-# Comparing pipeline frameworks
+# A comparison of pipeline frameworks
 
-[A lot of pipeline frameworks (aka workflow managers)
+[A lot of pipeline frameworks
 exist](https://github.com/pditommaso/awesome-pipeline), each containing
-a different (and sometimes exotic) syntax.
+a different (and sometimes exotic) syntax. It can be confusing to select
+the appropriate framework for a particular workflow.
 
-This repo includes:
+Here we try to
 
   - **[Example workflows for each framework](/examples)**, similar as
     done by the [Rosetta
-    code](http://www.rosettacode.org/wiki/Rosetta_Code) project.
+    code](http://www.rosettacode.org/wiki/Rosetta_Code) project. These
+    example workflow include common
   - **[A working document on the similarities and differences between
-    pipeline frameworks.](frameworks.md)**.
+    pipeline frameworks](frameworks.md)**.
   - **[A characterisation of the features of each
     framework.](characterisation)**. It is structured in the same way as
     the working document.
@@ -35,3 +37,7 @@ conduct](code_of_conduct.md).
 
   - [Sam Minot on how an ideal workflow manager looks
     like](https://www.minot.bio/home/2018/9/22/the-rise-of-the-machines-workflow-managers-for-bioinformatics)
+  - [An awesome list of
+    frameworks](https://github.com/pditommaso/awesome-pipeline)
+  - [Popularity ranking of tools based on
+    popularity](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
