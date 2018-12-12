@@ -10,6 +10,9 @@ matrix:
   include:
     - name: snakemake
     - name: nextflow
+    - name: make
+    - name: luigi
+    - name: drake
 
 install:
   - sudo apt-get update
