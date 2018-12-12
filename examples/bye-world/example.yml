@@ -1,4 +1,6 @@
 name: Bye world
 id: bye-world
 description: >
-    First write `hello world` to "hello-world.md", than write `bye world` to "bye-world.md"
+    First write `hello world` to "hello-world.md".
+    Then update the workflow to also write `bye world` to "bye-world.md"
+    "hello-world.md" should not be regenerated on the second execution of the workflow
