@@ -13,10 +13,13 @@ services:
 jobs:
   include:
     - stage: prepare cache
-      script: false
+      script: true
     - stage: test
       name: snakemake
-      install: false
+      install: true
+      script:
+        - source activate rosettapipeline
+        - snakemake --config framework_id=${TRAVIS_JOB_NAME}
 
 install:
   - sudo apt-get update
@@ -26,7 +29,3 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
   - conda env create -f environment.yml
-
-script:
-  - source activate rosettapipeline
-  - snakemake --config framework_id=${TRAVIS_JOB_NAME}
