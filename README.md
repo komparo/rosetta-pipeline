@@ -10,8 +10,8 @@ This repo includes:
   - **[Example workflows for each framework](/examples)**, similar as
     done by the [Rosetta
     code](http://www.rosettacode.org/wiki/Rosetta_Code) project.
-  - **\[A working document on the similarities and differences between
-    pipeline frameworks.\]**(frameworks.md).
+  - **[A working document on the similarities and differences between
+    pipeline frameworks.](frameworks.md)**.
   - **[A characterisation of the features of each
     framework.](characterisation)**. It is structured in the same way as
     the working document.
