@@ -4,6 +4,7 @@ python:
   - "3.6"
 
 cache:
+  timeout: 604800
   directories:
     - $HOME/miniconda
 
