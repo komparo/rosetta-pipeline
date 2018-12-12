@@ -33,7 +33,7 @@ def list_example_inputs(wildcards):
 # actual snakemake workflow
 rule all:
     input:
-        ["output/index.html", "README.md"] +
+        ["README.md"] +
         [f"output/tasks/{example_id}/{framework_id}/result.yml" for framework_id, example_id in EXAMPLES]
 
 rule docker:
@@ -46,14 +46,6 @@ rule docker:
             docker build -t rosettapipeline/{wildcards.framework_id} - < {input.dockerfile}
             docker inspect rosettapipeline/{wildcards.framework_id} > {output.digest}
         """
-
-rule site:
-    input:
-        digests = ["output/container_digests/{framework_id}".format(framework_id = framework_id) for framework_id in FRAMEWORK_IDS]
-    output:
-        "output/index.html"
-    shell:
-        "echo {input} > {output}"
 
 rule run_example:
     input: list_example_inputs
