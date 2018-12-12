@@ -29,7 +29,7 @@ The complete set of examples can be run by:
 
 1. Installing conda and docker
 2. Clone this repo
-3. Installing the conda environment: `conda create --name rosettapipeline --file environment.yml`
+3. Installing the conda environment: `conda env create -f environment.yml`
 4. Running snakemake: `snakemake`
 
 ## Contributing
