@@ -28,12 +28,9 @@ We install and run each framework inside a [docker container](containers). The c
 
 ## Contributing
 
-We welcome contributions of any kind. Some possibilities:
+We welcome contributions of any kind. See [contributing.md](contributing.md).
 
-- Add a new example which highlights the advantage of a particular framework. Each example should contain a "run.sh" file which contains the command that will be run inside the container of the framework.
-- Update or expand the working document.
-
-A contribution implies that you agree with the [Code of conduct](CODE_OF_CONDUCT.md).
+A contribution implies that you agree with the [Code of conduct](code_of_conduct.md).
 
 ## Further reading
 

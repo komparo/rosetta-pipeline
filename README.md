@@ -25,13 +25,8 @@ installed.
 
 ## Contributing
 
-We welcome contributions of any kind. Some possibilities:
-
-  - Add a new example which highlights the advantage of a particular
-    framework. Each example should contain a “run.sh” file which
-    contains the command that will be run inside the container of the
-    framework.
-  - Update or expand the working document.
+We welcome contributions of any kind. See
+[CONTRIBUTING.md](CONTRIBUTING.md).
 
 A contribution implies that you agree with the [Code of
 conduct](CODE_OF_CONDUCT.md).
