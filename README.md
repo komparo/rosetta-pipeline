@@ -7,17 +7,24 @@ Status](https://travis-ci.com/komparo/rosetta-pipeline.svg?branch=master)](https
 [A lot of pipeline frameworks
 exist](https://github.com/pditommaso/awesome-pipeline), each containing
 a different (and sometimes exotic) syntax. Because of this, it can be
-confusing to choose the appropriate framework for a particular use case.
+confusing to choose the appropriate framework for a particular use case,
+which is further complicated by inconsistent terminology usage across
+frameworks.
 
 Here we try to create:
 
   - **[Example workflows for each framework with some common workflow
-    patterns](tasks)**, similar as done by the [Rosetta
-    code](http://www.rosettacode.org/wiki/Rosetta_Code) project. They
-    showcase how each workflow manager is used, and where the
-    similarities and differences lie.
+    tasks](tasks)**. They showcase how each workflow manager is used,
+    and where the similarities and differences lie. This is inspired by
+    [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code).
   - **[A working document on the similarities and differences between
-    pipeline frameworks](frameworks.md)**.
+    pipeline frameworks](frameworks.md)**. Terminologies are very
+    diverse accross different frameworks, and this document tries to
+    introduce a consistent terminology while also listing the possible
+    alternatives along the way. This document is meant to be neutral and
+    objective, in the sense that it simply lists possible features of
+    pipeline frameworks, along with some advantages and disadvantages of
+    having that particular feature.
   - **[A characterisation of the features of each
     framework](characterisation)**, structured in the same way as the
     working document.
@@ -51,13 +58,15 @@ conduct](code_of_conduct.md).
     like](https://www.minot.bio/home/2018/9/22/the-rise-of-the-machines-workflow-managers-for-bioinformatics)
   - [Experiences when creating an RNA-seq
     pipeline](https://github.com/NCBI-Hackathons/SPeW)
+  - [Reddit discussion on Toil vs Snakemake vs
+    Nextflow](https://www.reddit.com/r/bioinformatics/comments/a4fq4i/given_the_experience_of_others_writing/)
 
 ### Lists and rankings
 
   - [An awesome list of
     frameworks](https://github.com/pditommaso/awesome-pipeline)
-  - [Popularity ranking of tools
-    based](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
+  - [Popularity ranking of
+    tools](https://docs.google.com/spreadsheets/d/1plkAsT_S3CzSeb7ivxyjRnHyrK3JclUCXeUMf_azraY/edit#gid=0)
 
 ### Reviews
 
