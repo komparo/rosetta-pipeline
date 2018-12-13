@@ -18,11 +18,12 @@ if "framework_id" in config:
     FRAMEWORK_EXAMPLES = {key:value for key, value in FRAMEWORK_EXAMPLES.items() if key == config["framework_id"]}
 
 FRAMEWORK_IDS = FRAMEWORK_EXAMPLES.keys()
-EXAMPLES = [[framework_id, example_id] for framework_id, example_ids in FRAMEWORK_EXAMPLES.items() for example_id in example_ids]
+EXAMPLES = [[framework_id, task_id] for framework_id, task_ids in FRAMEWORK_EXAMPLES.items() for task_id in task_ids]
+TASK_IDS = set([example[1] for example in EXAMPLES])
 
 # function to get all files within the example folder as input
 def list_example_inputs(wildcards):
-    example_folder = f"tasks/{wildcards.example_id}/{wildcards.framework_id}/"
+    example_folder = f"tasks/{wildcards.task_id}/{wildcards.framework_id}/"
     example_run = example_folder + "run.sh"
     example_files = glob.glob(example_folder + "*")
 
@@ -34,7 +35,8 @@ def list_example_inputs(wildcards):
 rule all:
     input:
         ["README.md"] +
-        [f"output/tasks/{example_id}/{framework_id}/result.yml" for framework_id, example_id in EXAMPLES]
+        [f"output/tasks/{task_id}/{framework_id}/result.yml" for framework_id, task_id in EXAMPLES] +
+        [f"tasks/{task_id}/README.md" for task_id in TASK_IDS]
 
 rule docker:
     input:
@@ -49,15 +51,15 @@ rule docker:
 
 rule run_example:
     input: list_example_inputs
-    output: "output/tasks/{example_id}/{framework_id}/result.yml"
-    log: "output/tasks/{example_id}/{framework_id}/log"
+    output: "output/tasks/{task_id}/{framework_id}/result.yml"
+    log: "output/tasks/{task_id}/{framework_id}/log"
     shell:
         """
-            rm -r output/tasks/{wildcards.example_id}/{wildcards.framework_id}
-            cp -r tasks/{wildcards.example_id}/{wildcards.framework_id} output/tasks/{wildcards.example_id}/
+            rm -r output/tasks/{wildcards.task_id}/{wildcards.framework_id}
+            cp -r tasks/{wildcards.task_id}/{wildcards.framework_id} output/tasks/{wildcards.task_id}/
 
             docker run \
-                --mount type=bind,source=$(pwd)/output/tasks/{wildcards.example_id}/{wildcards.framework_id},target=/output \
+                --mount type=bind,source=$(pwd)/output/tasks/{wildcards.task_id}/{wildcards.framework_id},target=/output \
                 --rm \
                 -w /output \
                 -v /var/run/docker.sock:/var/run/docker.sock \
@@ -79,3 +81,11 @@ rule render_readme:
     input: "README.Rmd"
     params: EXAMPLES
     script: "README.Rmd"
+
+rule render_task_readmes:
+    output: "tasks/{task_id}/README.md"
+    input:
+        task = "tasks/{task_id}/task.yml",
+        task_fig = "tasks/{task_id}/task.svg",
+        rmd = "scripts/templates/task.Rmd"
+    script: "scripts/templates/task.Rmd"

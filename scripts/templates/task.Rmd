@@ -1,0 +1,19 @@
+---
+output: 
+  github_document:
+    html_preview: FALSE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+task <- yaml::read_yaml(snakemake@input$task)
+```
+
+# `r task$name`
+
+`r task$description`
+
+![](`r basename(snakemake@input$task_fig)`)

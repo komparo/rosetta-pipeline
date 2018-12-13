@@ -1,4 +1,3 @@
-name: Hello world
-id: hello-world
+name: Write file
 description: >
     Write `hello world` to "hello-world.md"
