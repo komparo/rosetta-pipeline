@@ -2,13 +2,13 @@ import glob
 
 # define all examples and frameworks
 FRAMEWORK_EXAMPLES = {
-    "make": ["write-file", "write-file-incremental"],
-    "snakemake": ["write-file", "write-file-incremental"],
-    "nextflow": ["write-file", "write-file-incremental"],
-    "luigi": ["write-file", "write-file-incremental"],
+    "make": ["write-file", "write-file-cached"],
+    "snakemake": ["write-file", "write-file-cached"],
+    "nextflow": ["write-file", "write-file-cached"],
+    "luigi": ["write-file", "write-file-cached"],
     "airflow": ["write-file"],
     "toil": ["write-file"],
-    "cromwell": ["write-file", "write-file-incremental"],
+    "cromwell": ["write-file", "write-file-cached"],
     "drake": ["write-file"]
 }
 
@@ -49,10 +49,8 @@ rule docker:
 
 rule run_example:
     input: list_example_inputs
-    output:
-        "output/tasks/{example_id}/{framework_id}/result.yml"
-    log:
-        "output/tasks/{example_id}/{framework_id}/log"
+    output: "output/tasks/{example_id}/{framework_id}/result.yml"
+    log: "output/tasks/{example_id}/{framework_id}/log"
     shell:
         """
             rm -r output/tasks/{wildcards.example_id}/{wildcards.framework_id}
