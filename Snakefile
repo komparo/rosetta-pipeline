@@ -63,6 +63,7 @@ rule run_example:
                 --rm \
                 -w /output \
                 -v /var/run/docker.sock:/var/run/docker.sock \
+                -u $(id -u):$(id -g) \
                 rosettapipeline/{wildcards.framework_id} \
                 bash /output/run.sh \
                 2>&1 | tee {log}
