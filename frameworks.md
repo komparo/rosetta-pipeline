@@ -4,7 +4,7 @@ Briefly, a pipeline framework specifies a set of tasks (**specification**), each
 
 ## Specification
 
-> Specifying the tasks, what inputs and outputs they use, and in what order they have to be executed
+> Specifying the tasks, what inputs and outputs they use, and in what order they are executed
 
 ### Language
 
@@ -138,9 +138,16 @@ Provenance can be defined for different types of input.
 
 Tightly linked with data storage.
 
+### Server vs on-demand
+
 ### Resources
 
 > How many resources can a task consume?
+
+- Number of cpus
+- User time
+- Memory
+- Disk space
 
 ### Storage
 
@@ -150,8 +157,10 @@ File storage is tightly interlinked with scheduling, because some data may not b
 
 ### Development
 
-During development, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available. 
+During development, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available.
 
 ### Debugging
 
-To debug a particular task, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available. 
+To debug a particular task, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available.
+
+### Graphical user interface
