@@ -10,6 +10,3 @@ process write {
     echo 'Hello world' > 'hello-world.md'
     """
 }
-
-output_file.subscribe {
-}

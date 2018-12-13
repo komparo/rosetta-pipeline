@@ -10,6 +10,3 @@ process hello {
     echo 'Hello world' > 'hello-world.md'
     """
 }
-
-hello_fiile.subscribe {
-}

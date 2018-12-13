@@ -19,7 +19,6 @@ process AB {
     """
 }
 
-
 process ABC {
     publishDir './', mode: 'copy'
 
@@ -33,7 +32,4 @@ process ABC {
     """
     cat $AB $C > "ABC.txt"
     """
-}
-
-ABC.subscribe {
 }

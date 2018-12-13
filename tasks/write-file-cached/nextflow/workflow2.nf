@@ -11,10 +11,6 @@ process hello {
     """
 }
 
-hello_fiile.subscribe {
-}
-
-
 process bye {
     publishDir './', mode: 'copy'
 
@@ -24,7 +20,4 @@ process bye {
     """
     echo 'Bye world' > 'bye-world.md'
     """
-}
-
-bye_file.subscribe {
 }
