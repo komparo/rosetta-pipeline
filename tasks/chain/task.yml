@@ -1,5 +1,5 @@
 name: Chain
-description: >
+description: |
     Concatenate "A.txt" with "B.txt" and write this to "AB.txt". 
     Then concatenate "AB.txt" with "C.txt" and write to "ABC.txt"
 
