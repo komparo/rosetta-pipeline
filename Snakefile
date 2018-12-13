@@ -13,7 +13,8 @@ FRAMEWORK_EXAMPLES = {
 }
 
 # filter frameworks if defined in config
-# for example: snakemake --config framework_id=snakemake
+# for example: `snakemake --config framework_id=snakemake` will only run the snakemake workflows
+# this is used for continuous integration
 if "framework_id" in config:
     FRAMEWORK_EXAMPLES = {key:value for key, value in FRAMEWORK_EXAMPLES.items() if key == config["framework_id"]}
 
@@ -21,7 +22,7 @@ FRAMEWORK_IDS = FRAMEWORK_EXAMPLES.keys()
 EXAMPLES = [[framework_id, task_id] for framework_id, task_ids in FRAMEWORK_EXAMPLES.items() for task_id in task_ids]
 TASK_IDS = set([example[1] for example in EXAMPLES])
 
-# function to get all files within the example folder as input
+# function to get all files within the example folder & task data folder as input
 def list_example_inputs(wildcards):
     example_folder = f"tasks/{wildcards.task_id}/{wildcards.framework_id}/"
     example_run = example_folder + "run.sh"
@@ -60,7 +61,9 @@ rule run_example:
         """
             rm -r output/tasks/{wildcards.task_id}/{wildcards.framework_id}
             cp -r tasks/{wildcards.task_id}/{wildcards.framework_id} output/tasks/{wildcards.task_id}/
-            cp -r tasks/{wildcards.task_id}/data/* output/tasks/{wildcards.task_id}/{wildcards.framework_id}
+            if [ -d "tasks/{wildcards.task_id}/data/" ]; then
+                cp -r tasks/{wildcards.task_id}/data/* output/tasks/{wildcards.task_id}/{wildcards.framework_id}
+            fi
 
             docker run \
                 --mount type=bind,source=$(pwd)/output/tasks/{wildcards.task_id}/{wildcards.framework_id},target=/output \
