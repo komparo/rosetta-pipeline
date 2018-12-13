@@ -3,12 +3,12 @@ import glob
 # define all examples and frameworks
 FRAMEWORK_EXAMPLES = {
     "make": ["write-file", "write-file-cached"],
-    "snakemake": ["write-file", "write-file-cached"],
-    "nextflow": ["write-file", "write-file-cached"],
+    "snakemake": ["write-file", "write-file-cached", "chain"],
+    "nextflow": ["write-file", "write-file-cached", "chain"],
     "luigi": ["write-file", "write-file-cached"],
     "airflow": ["write-file"],
     "toil": ["write-file"],
-    "cromwell": ["write-file", "write-file-cached"],
+    "cromwell": ["write-file", "write-file-cached", "chain"],
     "drake": ["write-file"]
 }
 
@@ -27,9 +27,12 @@ def list_example_inputs(wildcards):
     example_run = example_folder + "run.sh"
     example_files = glob.glob(example_folder + "*")
 
+    data_folder = f"tasks/{wildcards.task_id}/data/"
+    data_files = glob.glob(data_folder + "*")
+
     example_container_digest = f"output/container_digests/{wildcards.framework_id}"
 
-    return example_files + [example_container_digest]
+    return example_files + data_files + [example_container_digest]
 
 # actual snakemake workflow
 rule all:
@@ -57,6 +60,7 @@ rule run_example:
         """
             rm -r output/tasks/{wildcards.task_id}/{wildcards.framework_id}
             cp -r tasks/{wildcards.task_id}/{wildcards.framework_id} output/tasks/{wildcards.task_id}/
+            cp -r tasks/{wildcards.task_id}/data/* output/tasks/{wildcards.task_id}/{wildcards.framework_id}
 
             docker run \
                 --mount type=bind,source=$(pwd)/output/tasks/{wildcards.task_id}/{wildcards.framework_id},target=/output \

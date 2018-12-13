@@ -87,7 +87,7 @@ The reproducibility of a pipeline is determined by how much of the inputs is spe
 
 Some frameworks enforce reproducibility by prohibiting the command to load any inputs which are not specified as such. Examples:
 
-- <!--- I remember some workflow manager that mounted each file separately in a docker, but can't remember which one ---->
+- Files: only make specified files available. Examples: Cromwell
 
 ## Outputs
 

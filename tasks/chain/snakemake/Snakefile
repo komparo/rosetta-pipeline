@@ -1,0 +1,12 @@
+rule all:
+    input: "ABC.txt"
+
+rule AB:
+    input: "A.txt", "B.txt"
+    output: "AB.txt"
+    shell: "cat {input[0]} {input[1]} > {output}"
+
+rule ABC:
+    input: "AB.txt", "C.txt"
+    output: "ABC.txt"
+    shell: "cat {input[0]} {input[1]} > {output}"
