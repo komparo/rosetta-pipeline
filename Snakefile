@@ -3,8 +3,8 @@ import glob
 # define all examples and frameworks
 FRAMEWORK_EXAMPLES = {
     "make": ["write-file", "write-file-cached"],
-    "snakemake": ["write-file", "write-file-cached", "chain"],
-    "nextflow": ["write-file", "write-file-cached", "chain"],
+    "snakemake": ["write-file", "write-file-cached", "chain", "merge"],
+    "nextflow": ["write-file", "write-file-cached", "chain", "merge"],
     "luigi": ["write-file", "write-file-cached"],
     "airflow": ["write-file"],
     "toil": ["write-file"],

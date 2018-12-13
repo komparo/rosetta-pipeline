@@ -112,7 +112,9 @@ Each type of input can be cached at different levels:
 
 Only the latter ensures full reproducibility and can be used for any type of input. However, for large data it can be computationally expensive to compare the content.
 
-Caching can be enabled by default (for example: snakemake), or should be enabled through the user interface (for example: nextflow).
+Caching can be enabled by default (for example: snakemake), or enabled through the user interface (for example: nextflow).
+
+While developing, it can be useful to cache outputs even if some of the inputs have changed. For example, snakemake will by default not rerun a task if a command has changed.
 
 ## Provenance
 
@@ -162,5 +164,8 @@ During development, it can be useful to enter the workflow with a REPL at a part
 ### Debugging
 
 To debug a particular task, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available.
+
+<!----- snakemake python debug ------>
+<!----- nextflow `bash .command.run` ----->
 
 ### Graphical user interface

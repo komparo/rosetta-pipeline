@@ -1,0 +1,14 @@
+import glob
+
+rule all:
+    input: "fairytale.txt"
+
+rule merge:
+    input: sorted(glob.glob("lines/*.txt"))
+    output: "merged.txt"
+    shell: "cat {input} > {output}"
+
+rule fairytale:
+    input: "merged.txt"
+    output: "fairytale.txt"
+    shell: "echo 'And they lived happily ever after.' | cat {input} - > {output}"
