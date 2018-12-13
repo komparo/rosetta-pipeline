@@ -4,22 +4,24 @@ Briefly, a pipeline framework specifies a set of tasks (**specification**), each
 
 ## Specification
 
-> Specifying the workflow
+> Specifying the tasks, how they need to be executed, and in what order
 
 ### Language
 
-There are different ways to specify the tasks of a workflow:
+There are different ways to specify a workflow:
 
-- Flat: Flat JSON or YAML files.
-- Domain specific language (DSL): A language specifically created for defining workflows. The specification is completely interpreted by the framework.
-- Hybrid: A combination of a DSL and a multi-purpose programming language. While the specification is still interpreted using the framework, parts of it are evaluated within the programming language.
-- Programming language: A multi-purpose language in which the workflow is specified, for example by using its object-oriented or functional features.
+- Flat: Flat JSON or YAML files. Directly interpretable because what you see is what you get, but has limited flexibility. <!--- Examples? --->
+- Domain specific language (DSL): A language specifically created for defining workflows. The specification is completely interpreted by the framework. Because such a language is tuned towards workflows, it can be very concise, but at the expense of requiring users to learn a new language or syntax to define workflows. Examples: WDL
+- Programming language: A multi-purpose language in which the workflow is specified, by using existing object-oriented or functional features.  Examples: Luigi
+- Hybrid: A combination of a DSL and a multi-purpose programming language. While the specification is still interpreted using the framework, parts of it are evaluated within the programming language. It combines the conciseness of a DSL with the familiarity and flexibility of a multi-purpose language. Examples: CWL, Snakemake, Nextflow
+
+While the hybrid method is the most common among existing frameworks, the extent to which a DSL and multi-purpose language are intermixed can vary considerably. For example, CWL only allows the use of javascript in parts of the workflow, while the use of python is allowed almost anywhere in the case of snakemake.
 
 ### Constructing the DAG
 
 Dependencies between tasks can be directly specified between tasks themselves (examples: luigi) or between output and input data (examples: snakemake, nextflow, cwl).
 
-Connecting tasks through data streams is a requirement for proper [incrementality](#incrementality), but also . In the 'push' idea (also known as data flow), a task is ran for every input 
+Connecting tasks through their data is a requirement for proper [caching](#caching), but also . In the 'push' idea (also known as data flow), a task is ran for every input 
 
 ## Inputs
 
@@ -87,7 +89,7 @@ Some specifications use
 
 
 
-## Incrementality
+## Caching
 
 > Tasks are not needlessly rerun
 
@@ -95,9 +97,9 @@ Also known as **caching**
 
 Related examples: _bye-world_
 
-### Levels of incrementality
+### Levels of caching
 
-Each type of input can be incremental at different levels:
+Each type of input can be cached at different levels:
 
 - version (e.g. a docker tag)
 - modification date
