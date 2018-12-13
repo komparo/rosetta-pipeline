@@ -1,6 +1,6 @@
 # Pipeline frameworks
 
-Briefly, a pipeline framework specifies a set of tasks (**specification**), each with some **inputs** and **outputs**, and executes theses tasks (**execution**). It can also keep track of which tasks were used to produce a particular output (**provenance**), and where input and output data is stored (**storage**).
+Briefly, a pipeline framework specifies a set of tasks (**specification**), each with some **inputs** and **outputs**, and executes theses tasks (**execution**). It provides a user interface to develop, run and explore workflows (**usability**), and can also keep track of which tasks were used to produce a particular output (**provenance**).
 
 ## Specification
 
@@ -110,7 +110,9 @@ Each type of input can be cached at different levels:
 - File size. Examples: nextflow
 - Content (such as a digest). Examples: Cromwell, snakemake (for scripts), nextflow (when specified)
 
-Only the latter provides full reproducibility and can be used for any type of input. However, for large data it can be computationally expensive to compare the content.
+Only the latter ensures full reproducibility and can be used for any type of input. However, for large data it can be computationally expensive to compare the content.
+
+Caching can be enabled by default (for example: snakemake), or should be enabled through the user interface (for example: nextflow).
 
 ## Provenance
 
@@ -140,6 +142,16 @@ Tightly linked with data storage.
 
 > How many resources can a task consume?
 
+### Storage
+
+File storage is tightly interlinked with scheduling, because some data may not be easily available on some systems.
+
 ## Usability
 
-## Storage
+### Development
+
+During development, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available. 
+
+### Debugging
+
+To debug a particular task, it can be useful to enter the workflow with a REPL at a particular point, with the complete environment and inputs available. 
