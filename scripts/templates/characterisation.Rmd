@@ -70,7 +70,7 @@ A task and workflow can only be reproducible when all possible inputs are define
 
 There are different types of inputs
 
-#### Files
+#### File
 
 Any data file, which can be present locally, on a shared files system, on the cloud or on some other web server.
 
@@ -85,19 +85,21 @@ Some frameworks provide wrappers for some common shell commands:
 * Direct rendering of R Markdown files: snakemake
 * Running a script: snakemake
 
-#### Parameters
+#### Parameter
 
 Values defined directly inside the workflow specification.
 
 Not all frameworks allow this kind of input. It can be easily mimicked by specifying the parameters as files.
 
-#### Environments
+#### Environment
 
 Where the code is run. Environments can be constrained at different levels:
 
 - Nothing: Execute everything in an existing environment, without defining how this environment can be created. This is the default environment for most frameworks. Example: the local environment on which the pipeline is executed
 - Package manager: Specifying the libraries/packages and their versions that are installed on the system. Examples: conda
 - OS: Specifying the full operating system and its libraries. Examples: virtual machines, docker containers, singularity containers
+
+Related tasks: `r link_to_tasks("Environment")`
 
 #### Random state
 

@@ -88,7 +88,7 @@ are defined.
 
 There are different types of inputs
 
-#### Files
+#### File
 
 Any data file, which can be present locally, on a shared files system,
 on the cloud or on some other web server.
@@ -106,14 +106,14 @@ Some frameworks provide wrappers for some common shell commands:
   - Direct rendering of R Markdown files: snakemake
   - Running a script: snakemake
 
-#### Parameters
+#### Parameter
 
 Values defined directly inside the workflow specification.
 
 Not all frameworks allow this kind of input. It can be easily mimicked
 by specifying the parameters as files.
 
-#### Environments
+#### Environment
 
 Where the code is run. Environments can be constrained at different
 levels:
@@ -127,6 +127,8 @@ levels:
   - OS: Specifying the full operating system and its libraries.
     Examples: virtual machines, docker containers, singularity
     containers
+
+Related tasks: [Run in docker](/tasks/run-in-docker)
 
 #### Random state
 
