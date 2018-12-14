@@ -1,0 +1,17 @@
+rule all:
+    input: "fairytale.txt"
+
+rule split:
+    input: "elatyriaf.txt"
+    output: dynamic("split/{line_id}")
+    shell: "split {input} -l 1 split/"
+
+rule reverse:
+    input: "split/{line_id}"
+    output: "reverse/{line_id}"
+    shell: "rev {input} > {output}"
+
+rule merge:
+    input: dynamic("reverse/{line_id}")
+    output: "fairytale.txt"
+    shell: "cat {input} > {output}"
