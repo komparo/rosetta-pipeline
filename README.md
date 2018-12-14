@@ -18,13 +18,13 @@ Here we try to create:
     and where the similarities and differences lie. This is inspired by
     [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code).
   - **[A working document on the similarities and differences between
-    pipeline frameworks](frameworks.md)**. This document tries to
-    introduce a consistent terminology of features that a pipeline
-    framework can have, while also listing alternative names along the
-    way. The discussion is meant to be neutral and objective, in the
-    sense that it simply lists possible features of pipeline frameworks,
-    along with some advantages and disadvantages of having that
-    particular feature.
+    pipeline frameworks](characterisation/overview.md)**. This document
+    tries to introduce a consistent terminology of features that a
+    pipeline framework can have, while also listing alternative names
+    along the way. The discussion is meant to be neutral and objective,
+    in the sense that it simply lists possible features of pipeline
+    frameworks, along with some advantages and disadvantages of having
+    that particular feature.
   - **[A characterisation of the features of each
     framework](characterisation)**, structured in the same way as the
     working document.
@@ -33,22 +33,22 @@ Here we try to create:
 
 ## Running the tasks
 
-We install and run each framework inside a [docker
+Each framework is installed and run inside a [docker
 container](containers). The complete set of examples can be run by:
 
 1.  Installing conda and docker
 2.  Clone this repo
 3.  Installing the conda environment: `conda env create -f
-    environment.yml`
+    assets/env/environment.yml`
 4.  Running snakemake: `snakemake`
 
 ## Contributing
 
 We welcome contributions of any kind. See
-[contributing.md](contributing.md).
+[contributing.md](assets/contributing.md).
 
 A contribution implies that you agree with the [Code of
-conduct](code_of_conduct.md).
+conduct](assets/code_of_conduct.md).
 
 ## Further reading
 

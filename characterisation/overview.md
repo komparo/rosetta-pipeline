@@ -83,11 +83,11 @@ This type of input is ignored by nearly every framework.
 
 ### Reproducibility
 
-The reproducibility of a pipeline is determined by how much of the inputs is specified.
+The reproducibility of a pipeline hinges on how much of the inputs is specified.
 
 Some frameworks enforce reproducibility by prohibiting the command to load any inputs which are not specified as such. Examples:
 
-- Files: only make specified files available. Examples: Cromwell
+- Only make specified input files available to the task. Examples: Cromwell, nextflow
 
 ## Outputs
 

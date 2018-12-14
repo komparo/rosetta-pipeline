@@ -3,8 +3,8 @@ import glob
 # define all examples and frameworks
 FRAMEWORK_EXAMPLES = {
     "make": ["write-file", "write-file-cached"],
-    "snakemake": ["write-file", "write-file-cached", "chain", "merge"],
-    "nextflow": ["write-file", "write-file-cached", "chain", "merge"],
+    "snakemake": ["write-file", "write-file-cached", "chain", "merge", "split-merge"],
+    "nextflow": ["write-file", "write-file-cached", "chain", "merge", "split-merge"],
     "luigi": ["write-file", "write-file-cached"],
     "airflow": ["write-file"],
     "toil": ["write-file"],
@@ -85,9 +85,9 @@ rule aggregate_examples:
 
 rule render_readme:
     output: "README.md"
-    input: "README.Rmd"
+    input: "scripts/README.Rmd"
     params: EXAMPLES
-    script: "README.Rmd"
+    script: "scripts/README.Rmd"
 
 rule render_task_readmes:
     output: "tasks/{task_id}/README.md"
