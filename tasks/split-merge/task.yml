@@ -2,6 +2,8 @@ name: Split merge
 description: |
   _Run one task that splits into an unknown number of other tasks, then merge the results of these tasks again using one task_ 
 
+  ---
+
   1. Split "elatyriaf.txt" into separate files .txt files.
 
   2. Reverse characters in each file and save

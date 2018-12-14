@@ -2,6 +2,8 @@ name: One task cached
 description: |
     _Cache the results of previously ran tasks_
 
+    ---
+
     First write `hello world` to "hello-world.md".
     Then update the workflow to also write `bye world` to "bye-world.md"
 

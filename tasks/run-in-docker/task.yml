@@ -1,6 +1,8 @@
 name: Run in docker
 description: |
   _Run one task in a docker container_
+
+  ---
   
   Copy "/file_in_docker.txt" to "output.txt". This file is only available inside of the rosettapipeline/run-in-docker docker container.
 concepts:
