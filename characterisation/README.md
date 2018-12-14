@@ -1,6 +1,6 @@
 # Pipeline frameworks
 
-Briefly, a pipeline framework specifies a set of tasks (**specification**), each with some **inputs** and **outputs**, and executes theses tasks (**execution**). It provides a user interface to develop, run and explore workflows (**usability**), and can also keep track of which tasks were used to produce a particular output (**provenance**).
+Briefly, a pipeline framework specifies a set of tasks (**specification**), each with some **inputs** and **outputs**, and executes theses tasks (**execution**). It also provides a user interface to develop, run and explore pipelines (**usability**), and can also keep track of which tasks were used to produce a particular output (**provenance**).
 
 ## Specification
 
@@ -11,8 +11,8 @@ Briefly, a pipeline framework specifies a set of tasks (**specification**), each
 There are different ways to specify a workflow:
 
 - Flat: Flat JSON or YAML files. Directly interpretable because what you see is what you get, but has limited flexibility. <!--- Examples? --->
-- Domain specific language (DSL): A language specifically created for defining workflows, which is interpreted by the framework. Because such a language is tuned towards workflows, it can be very concise, but at the expense of requiring users to learn a new language or syntax to define workflows. Examples: WDL
-- Programming language: A multi-purpose language in which the workflow is specified, by using existing object-oriented or functional features.  Examples: Luigi
+- Domain specific language (DSL): A language specifically created for defining workflows, which is interpreted by the framework. Because such a language is tuned towards workflows, it can be very concise, but at the expense of requiring users to learn a new language or syntax. Examples: WDL
+- Programming language: A multi-purpose language in which the workflow is specified, by using existing object-oriented or functional features. Examples: Luigi
 - Hybrid: A combination of a DSL and a multi-purpose programming language. While the specification is still interpreted using the framework, parts of it are evaluated within the programming language. It combines the conciseness of a DSL with the familiarity and flexibility of a multi-purpose language. Examples: CWL, Snakemake, Nextflow
 
 While the hybrid method is the most common among existing frameworks, the extent to which a DSL and multi-purpose language are intermixed can vary considerably. For example, CWL only allows the use of javascript in parts of the workflow, while the use of python is allowed almost anywhere in the case of snakemake.

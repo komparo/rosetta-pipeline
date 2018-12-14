@@ -29,23 +29,28 @@ Here we try to create:
     framework](characterisation)**, structured in the same way as the
     working document.
 
-## Frameworks
+## Structure
 
-## Running the tasks
+  - [tasks](tasks) contains the task description and examples for each
+    framework
+  - [characterisation](characterisation) contains the [working
+    document](characterisation/README.md)
+  - [containers](containers) contains the dockerfiles for each
+    framework. These are used for running the examples.
 
-Each framework is installed and run inside a [docker
-container](containers). The complete set of examples can be run by:
+## Running the examples
 
-1.  Installing conda and docker
+1.  Install conda and docker
 2.  Clone this repo
-3.  Installing the conda environment: `conda env create -f
+3.  Install the conda environment: `conda env create -f
     assets/env/environment.yml`
-4.  Running snakemake: `snakemake`
+4.  Run snakemake: `snakemake`. A first build can take a while because
+    all docker containers will be built.
 
 ## Contributing
 
 We welcome contributions of any kind. See
-[contributing.md](assets/contributing.md).
+[assets/contributing.md](assets/contributing.md).
 
 A contribution implies that you agree with the [Code of
 conduct](assets/code_of_conduct.md).
