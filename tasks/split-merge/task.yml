@@ -1,4 +1,4 @@
-name: Merge
+name: Split merge
 description: |
     1. Split "elatyriaf.txt" into separate files .txt files.
 
@@ -6,6 +6,7 @@ description: |
 
     3. Concatenate the reverse files into "fairytale.txt"
 
+    Example in bash\:
     ```
     mkdir split
     split elatyriaf.txt -l 1 split/
@@ -15,5 +16,5 @@ description: |
     done
     cat split/*2 > fairytale.txt
     ```
-features:
+concepts:
   - Static vs dynamic

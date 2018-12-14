@@ -60,6 +60,8 @@ Some frameworks construct the complete DAG before executing any tasks (_static_)
 - Number of inputs and outputs: snakemake, nextflow
 - Alternative paths: nextflow
 
+Related tasks: `r link_to_tasks("Static vs dynamic")`
+
 ## Inputs
 
 > What is consumed by a task

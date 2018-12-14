@@ -77,6 +77,8 @@ output of tasks (*dynamic*). A DAG can be dynamic at different levels:
   - Number of inputs and outputs: snakemake, nextflow
   - Alternative paths: nextflow
 
+Related tasks: [Split merge](/tasks/split-merge)
+
 ## Inputs
 
 > What is consumed by a task

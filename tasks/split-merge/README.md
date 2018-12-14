@@ -1,7 +1,7 @@
 
 <!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
 
-# Merge
+# Split merge
 
 1.  Split “elatyriaf.txt” into separate files .txt files.
 
@@ -9,7 +9,7 @@
 
 3.  Concatenate the reverse files into “fairytale.txt”
 
-<!-- end list -->
+Example in bash:
 
     mkdir split
     split elatyriaf.txt -l 1 split/
