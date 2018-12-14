@@ -35,12 +35,12 @@ Here we try to create:
 ## Tasks & examples
 
 ```{r, echo = FALSE}
-link <- function(label, url) {paste0("[", label, "](tasks/", url, ")")}
+link <- function(label, url) {paste0("[", label, "](", url, ")")}
 map_df(tasks, function(task) {
   tibble(
     Task = link(task$name, paste0("tasks/", task$id)),
     Frameworks = map(task$framework_ids, ~link(., paste0("tasks/", task$id, "/", .))) %>%
-      paste0(collapse = " ")
+      paste0(collapse = ", ")
   )
 }) %>% knitr::kable(escape = FALSE)
 ```
