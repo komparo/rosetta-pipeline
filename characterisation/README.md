@@ -50,8 +50,8 @@ anywhere in the case of snakemake.
 Dependencies between tasks can be directly specified between tasks
 (examples: luigi) or between output and input data (examples: snakemake,
 nextflow, cwl). In the end, this produces a directed acyclic graph
-(DAG), which is be executed starting from those tasks without any
-ingoing edges, and ends with those tasks without any outgoing edges.
+(DAG), which is executed starting from those tasks without any ingoing
+edges, and ends with those tasks without any outgoing edges.
 
 #### Pull vs push
 
@@ -74,7 +74,7 @@ Some frameworks construct the complete DAG before executing any tasks
 (*static*), while others allow some changes in the DAG depending on the
 output of tasks (*dynamic*). A DAG can be dynamic at different levels:
 
-  - Number of inputs and outputs: snakemake
+  - Number of inputs and outputs: snakemake, nextflow
   - Alternative paths: nextflow
 
 ## Inputs
@@ -145,7 +145,7 @@ load any inputs which are not specified as such. Examples:
 
   - Only make specified input files available to the task: Cromwell,
     nextflow
-  - Require an environment to be specified:
+  - Require an environment to be specified: Argo
 
 ## Outputs
 

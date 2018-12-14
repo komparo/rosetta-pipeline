@@ -20,13 +20,12 @@ Here we try to create:
     the similarities and differences lie. This is inspired by [Rosetta
     code](http://www.rosettacode.org/wiki/Rosetta_Code).
   - **[A working document on the similarities and differences between
-    pipeline frameworks](characterisation/overview.md)**. This document
-    introduces a consistent terminology of features that a pipeline
-    framework can have, while listing alternative terms along the way.
-    The discussion is meant to be neutral and objective, in the sense
-    that it simply lists possible features of pipeline frameworks, along
-    with some advantages and disadvantages of having that particular
-    feature.
+    pipeline frameworks](characterisation)**. This document introduces a
+    consistent terminology of features that a pipeline framework can
+    have, while listing alternative terms along the way. The discussion
+    is meant to be neutral and objective, in the sense that it simply
+    lists possible features of pipeline frameworks, along with some
+    advantages and disadvantages of having that particular feature.
   - **[A characterisation of the features of each
     framework](characterisation)**, structured in the same way as the
     working document. It discusses how each
