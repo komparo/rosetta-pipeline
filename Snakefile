@@ -103,6 +103,7 @@ rule run_example:
 rule aggregate_tasks:
     input: 
         tasks = [f"tasks/{task_id}/task.yml" for task_id in TASK_IDS],
+        examples = [f"tasks/{task_id}/{framework_id}/run.sh" for framework_id, task_id in EXAMPLES],
         script = "scripts/aggregate_tasks.R"
     output: "output/tasks.json"
     script: "scripts/aggregate_tasks.R"
@@ -110,8 +111,8 @@ rule aggregate_tasks:
 rule render_readme:
     output: "README.md"
     input: 
-        rmd = "scripts/templates/README.Rmd"
-    params: EXAMPLES
+        rmd = "scripts/templates/README.Rmd",
+        tasks = "output/tasks.json"
     script: "scripts/templates/README.Rmd"
 
 rule render_task_readmes:

@@ -9,7 +9,7 @@ output:
 ```{r "setup", echo = FALSE, include = FALSE}
 library(tidyverse)
 
-# tasks <- jsonlite::read_json("output/tasks.json", simplifyVector = T, simplifyMatrix = FALSE, simplifyDataFrame = FALSE)
+# "output/tasks.json"
 tasks <- jsonlite::read_json(snakemake@input$tasks, simplifyVector = TRUE, simplifyMatrix = FALSE, simplifyDataFrame = FALSE)
 
 link_to_tasks <- function(concept) {
