@@ -1,0 +1,5 @@
+name: Run in docker
+description: |
+  Copy "/file_in_docker.txt" to "output.txt". This file is only available inside of the rosettapipeline/run-in-docker docker container.
+concepts:
+  - Environment

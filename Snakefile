@@ -1,10 +1,11 @@
 import glob
+import os.path
 
 # define all examples and frameworks
 FRAMEWORK_EXAMPLES = {
     "make": ["write-file", "write-file-cached"],
     "snakemake": ["write-file", "write-file-cached", "chain", "merge", "split-merge"],
-    "nextflow": ["write-file", "write-file-cached", "chain", "merge", "split-merge"],
+    "nextflow": ["write-file", "write-file-cached", "chain", "merge", "split-merge", "run-in-docker"],
     "luigi": ["write-file", "write-file-cached"],
     "airflow": ["write-file"],
     "toil": ["write-file"],
@@ -31,9 +32,14 @@ def list_example_inputs(wildcards):
     data_folder = f"tasks/{wildcards.task_id}/data/"
     data_files = glob.glob(data_folder + "*")
 
-    example_container_digest = f"output/container_digests/{wildcards.framework_id}"
+    example_container_digest = [f"output/container_digests/{wildcards.framework_id}"]
 
-    return example_files + data_files + [example_container_digest]
+    if os.path.isfile(f"tasks/{wildcards.task_id}/Dockerfile"):
+        task_container_digest =  [f"output/container_digests/{wildcards.task_id}"] 
+    else:
+        task_container_digest = []
+
+    return example_files + data_files + example_container_digest + task_container_digest
 
 # actual snakemake workflow
 rule all:
@@ -42,7 +48,7 @@ rule all:
         [f"output/tasks/{task_id}/{framework_id}/result.yml" for framework_id, task_id in EXAMPLES] +
         [f"tasks/{task_id}/README.md" for task_id in TASK_IDS]
 
-rule docker:
+rule framework_docker:
     input:
         dockerfile = "containers/{framework_id}/Dockerfile"
     output:
@@ -51,6 +57,17 @@ rule docker:
         """
             docker build -t rosettapipeline/{wildcards.framework_id} - < {input.dockerfile}
             docker inspect rosettapipeline/{wildcards.framework_id} > {output.digest}
+        """
+
+rule task_docker:
+    input:
+        dockerfile = "tasks/{task_id}/Dockerfile"
+    output:
+        digest = "output/container_digests/{task_id}"
+    shell:
+        """
+            docker build -t rosettapipeline/{wildcards.task_id} - < {input.dockerfile}
+            docker inspect rosettapipeline/{wildcards.task_id} > {output.digest}
         """
 
 rule run_example:
@@ -65,14 +82,19 @@ rule run_example:
                 cp -r tasks/{wildcards.task_id}/data/* output/tasks/{wildcards.task_id}/{wildcards.framework_id}
             fi
 
+            # run docker
+            # the working directory is mounted into the exact same location of the docker, so that docker-in-docker can mount subdirectories (necessary for e.g. nextflow)
+            # we also set the group id to the "docker" group id, so that the user within the docker can run dockers
+
+            GROUPID=`cut -d: -f3 < <(getent group docker)`
             docker run \
-                --mount type=bind,source=$(pwd)/output/tasks/{wildcards.task_id}/{wildcards.framework_id},target=/output \
+                --mount type=bind,source=$(pwd),target=$(pwd) \
                 --rm \
-                -w /output \
+                -w $(pwd)/output/tasks/{wildcards.task_id}/{wildcards.framework_id} \
                 -v /var/run/docker.sock:/var/run/docker.sock \
-                -u $(id -u):$(id -g) \
+                -u $(id -u):$GROUPID \
                 rosettapipeline/{wildcards.framework_id} \
-                bash /output/run.sh \
+                bash run.sh \
                 2>&1 | tee {log}
 
             echo "true" > {output}
