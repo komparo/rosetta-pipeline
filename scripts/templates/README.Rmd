@@ -34,15 +34,16 @@ Here we try to create:
 
 ## Tasks & examples
 
+--- | ---  
 ```{r, echo = FALSE, results = "asis"}
 link <- function(label, url) {paste0("[", label, "](tasks/", url, ")")}
 walk(tasks, function(task) {
   cat(link(task$name, paste0("tasks/", task$id)))
-  cat(": ")
+  cat(" | ")
   map(task$framework_ids, ~link(., paste0("tasks/", task$id, "/", .))) %>%
     paste0(collapse = " ") %>%
     cat()
-  cat("\\\n\\\n")
+  cat("\\\n")
 })
 ```
 

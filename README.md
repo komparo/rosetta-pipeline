@@ -42,11 +42,11 @@ Here we try to create:
 
 ## Tasks & examples
 
-[Chain](tasks/tasks/chain): [snakemake](tasks/tasks/chain/snakemake)
+— | —  
+[Chain](tasks/tasks/chain) | [snakemake](tasks/tasks/chain/snakemake)
 [nextflow](tasks/tasks/chain/nextflow)
 [cromwell](tasks/tasks/chain/cromwell)  
-  
-[Write file](tasks/tasks/write-file):
+[Write file](tasks/tasks/write-file) |
 [make](tasks/tasks/write-file/make)
 [snakemake](tasks/tasks/write-file/snakemake)
 [nextflow](tasks/tasks/write-file/nextflow)
@@ -55,25 +55,20 @@ Here we try to create:
 [toil](tasks/tasks/write-file/toil)
 [cromwell](tasks/tasks/write-file/cromwell)
 [drake](tasks/tasks/write-file/drake)  
-  
-[Write file cached](tasks/tasks/write-file-cached):
+[Write file cached](tasks/tasks/write-file-cached) |
 [make](tasks/tasks/write-file-cached/make)
 [snakemake](tasks/tasks/write-file-cached/snakemake)
 [nextflow](tasks/tasks/write-file-cached/nextflow)
 [luigi](tasks/tasks/write-file-cached/luigi)
 [cromwell](tasks/tasks/write-file-cached/cromwell)  
-  
-[Split merge](tasks/tasks/split-merge):
+[Split merge](tasks/tasks/split-merge) |
 [snakemake](tasks/tasks/split-merge/snakemake)
 [nextflow](tasks/tasks/split-merge/nextflow)  
-  
-[Run in docker](tasks/tasks/run-in-docker):
+[Run in docker](tasks/tasks/run-in-docker) |
 [nextflow](tasks/tasks/run-in-docker/nextflow)
 [cromwell](tasks/tasks/run-in-docker/cromwell)  
-  
-[Merge](tasks/tasks/merge): [snakemake](tasks/tasks/merge/snakemake)
+[Merge](tasks/tasks/merge) | [snakemake](tasks/tasks/merge/snakemake)
 [nextflow](tasks/tasks/merge/nextflow)  
-  
 
 ## Running the examples
 
