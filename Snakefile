@@ -9,7 +9,7 @@ FRAMEWORK_EXAMPLES = {
     "luigi": ["write-file", "write-file-cached"],
     "airflow": ["write-file"],
     "toil": ["write-file"],
-    "cromwell": ["write-file", "write-file-cached", "chain"],
+    "cromwell": ["write-file", "write-file-cached", "chain", "run-in-docker"],
     "drake": ["write-file"]
 }
 
