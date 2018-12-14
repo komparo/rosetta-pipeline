@@ -1,20 +1,22 @@
 name: Split merge
 description: |
-    1. Split "elatyriaf.txt" into separate files .txt files.
+  _Run one task that splits into an unknown number of other tasks, then merge the results of these tasks again using one task_ 
 
-    2. Reverse characters in each file and save
+  1. Split "elatyriaf.txt" into separate files .txt files.
 
-    3. Concatenate the reverse files into "fairytale.txt"
+  2. Reverse characters in each file and save
 
-    Example in bash\:
-    ```
-    mkdir split
-    split elatyriaf.txt -l 1 split/
-    for f in split/*
-    do
-      rev $f > ${f}2
-    done
-    cat split/*2 > fairytale.txt
-    ```
+  3. Concatenate the reverse files into "fairytale.txt"
+
+  Example in bash\:
+  ```
+  mkdir split
+  split elatyriaf.txt -l 1 split/
+  for f in split/*
+  do
+    rev $f > ${f}2
+  done
+  cat split/*2 > fairytale.txt
+  ```
 concepts:
   - Static vs dynamic

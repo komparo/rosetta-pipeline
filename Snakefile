@@ -3,14 +3,14 @@ import os.path
 
 # define all examples and frameworks
 FRAMEWORK_EXAMPLES = {
-    "make": ["write-file", "write-file-cached"],
-    "snakemake": ["write-file", "write-file-cached", "chain", "merge", "split-merge"],
-    "nextflow": ["write-file", "write-file-cached", "chain", "merge", "split-merge", "run-in-docker"],
-    "luigi": ["write-file", "write-file-cached"],
-    "airflow": ["write-file"],
-    "toil": ["write-file"],
-    "cromwell": ["write-file", "write-file-cached", "chain", "run-in-docker"],
-    "drake": ["write-file"]
+    "make": ["one-task", "one-task-cached"],
+    "snakemake": ["one-task", "one-task-cached", "chain", "merge", "split-merge"],
+    "nextflow": ["one-task", "one-task-cached", "chain", "merge", "split-merge", "run-in-docker"],
+    "luigi": ["one-task", "one-task-cached"],
+    "airflow": ["one-task"],
+    "toil": ["one-task"],
+    "cromwell": ["one-task", "one-task-cached", "chain", "run-in-docker"],
+    "drake": ["one-task"]
 }
 
 # filter frameworks if defined in config

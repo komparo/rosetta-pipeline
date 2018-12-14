@@ -161,7 +161,7 @@ load any inputs which are not specified as such. Examples:
 
 Also known as *incrementality*
 
-Related tasks: [Write file cached](/tasks/write-file-cached)
+Related tasks: [One task cached](/tasks/one-task-cached)
 
 ### Levels of caching
 

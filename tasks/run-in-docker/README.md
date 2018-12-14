@@ -3,6 +3,8 @@
 
 # Run in docker
 
+*Run one task in a docker container*
+
 Copy “/file\_in\_docker.txt” to “output.txt”. This file is only
 available inside of the rosettapipeline/run-in-docker docker container.
 

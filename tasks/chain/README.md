@@ -3,6 +3,9 @@
 
 # Chain
 
+*Run a number of tasks, in which the input of one task depends on the
+output of another*
+
 Concatenate “A.txt” with “B.txt” and write this to “AB.txt”. Then
 concatenate “AB.txt” with “C.txt” and write to “ABC.txt”
 

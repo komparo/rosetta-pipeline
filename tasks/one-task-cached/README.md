@@ -1,7 +1,9 @@
 
 <!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
 
-# Write file cached
+# One task cached
+
+*Cache the results of previously ran tasks*
 
 First write `hello world` to “hello-world.md”. Then update the workflow
 to also write `bye world` to “bye-world.md”
