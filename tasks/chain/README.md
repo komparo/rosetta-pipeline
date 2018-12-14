@@ -1,4 +1,6 @@
 
+<!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
+
 # Chain
 
 Concatenate “A.txt” with “B.txt” and write this to “AB.txt”. Then

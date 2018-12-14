@@ -38,7 +38,7 @@ def list_example_inputs(wildcards):
 # actual snakemake workflow
 rule all:
     input:
-        ["README.md"] +
+        ["README.md", "characterisation/README.md"] +
         [f"output/tasks/{task_id}/{framework_id}/result.yml" for framework_id, task_id in EXAMPLES] +
         [f"tasks/{task_id}/README.md" for task_id in TASK_IDS]
 
@@ -78,16 +78,19 @@ rule run_example:
             echo "true" > {output}
         """
 
-rule aggregate_examples:
-    input: expand("output/tasks/*/result.yml")
-    output: "output/examples.tsv"
-    script: "aggregate_examples.R"
+rule aggregate_tasks:
+    input: 
+        tasks = [f"tasks/{task_id}/task.yml" for task_id in TASK_IDS],
+        script = "scripts/aggregate_tasks.R"
+    output: "output/tasks.json"
+    script: "scripts/aggregate_tasks.R"
 
 rule render_readme:
     output: "README.md"
-    input: "scripts/README.Rmd"
+    input: 
+        rmd = "scripts/templates/README.Rmd"
     params: EXAMPLES
-    script: "scripts/README.Rmd"
+    script: "scripts/templates/README.Rmd"
 
 rule render_task_readmes:
     output: "tasks/{task_id}/README.md"
@@ -96,3 +99,10 @@ rule render_task_readmes:
         task_fig = "tasks/{task_id}/task.svg",
         rmd = "scripts/templates/task.Rmd"
     script: "scripts/templates/task.Rmd"
+
+rule render_characterisation:
+    output: "characterisation/README.md"
+    input:
+        rmd = "scripts/templates/characterisation.Rmd",
+        tasks = "output/tasks.json"
+    script: "scripts/templates/characterisation.Rmd"

@@ -1,4 +1,6 @@
 
+<!-- Do not edit this by hand, this is automatically generated based on scripts/templates/README.Rmd -->
+
 # Rosetta pipeline: A showcase and characterisation of pipeline frameworks
 
 [![Build
@@ -14,29 +16,29 @@ frameworks.
 Here we try to create:
 
   - **[Example workflows for each framework with some common workflow
-    tasks](tasks)**. They showcase how each workflow manager is used,
-    and where the similarities and differences lie. This is inspired by
-    [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code).
+    tasks](tasks)**. They showcase how each framework is used, and where
+    the similarities and differences lie. This is inspired by [Rosetta
+    code](http://www.rosettacode.org/wiki/Rosetta_Code).
   - **[A working document on the similarities and differences between
     pipeline frameworks](characterisation/overview.md)**. This document
-    tries to introduce a consistent terminology of features that a
-    pipeline framework can have, while also listing alternative names
-    along the way. The discussion is meant to be neutral and objective,
-    in the sense that it simply lists possible features of pipeline
-    frameworks, along with some advantages and disadvantages of having
-    that particular feature.
+    introduces a consistent terminology of features that a pipeline
+    framework can have, while listing alternative terms along the way.
+    The discussion is meant to be neutral and objective, in the sense
+    that it simply lists possible features of pipeline frameworks, along
+    with some advantages and disadvantages of having that particular
+    feature.
   - **[A characterisation of the features of each
     framework](characterisation)**, structured in the same way as the
-    working document.
+    working document. It discusses how each
 
 ## Structure
 
   - [tasks](tasks) contains the task description and examples for each
-    framework
+    framework.
   - [characterisation](characterisation) contains the [working
-    document](characterisation/README.md)
+    document](characterisation/README.md).
   - [containers](containers) contains the dockerfiles for each
-    framework. These are used for running the examples.
+    framework. These are used for executing the example workflows.
 
 ## Running the examples
 
@@ -45,7 +47,7 @@ Here we try to create:
 3.  Install the conda environment: `conda env create -f
     assets/env/environment.yml`
 4.  Run snakemake: `snakemake`. A first build can take a while because
-    all docker containers will be built.
+    all docker containers have to be built.
 
 ## Contributing
 

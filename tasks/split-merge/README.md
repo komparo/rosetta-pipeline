@@ -1,4 +1,6 @@
 
+<!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
+
 # Merge
 
 1.  Split “elatyriaf.txt” into separate files .txt files.

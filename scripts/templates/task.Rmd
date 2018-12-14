@@ -3,6 +3,7 @@ output:
   github_document:
     html_preview: FALSE
 ---
+<!-- Do not edit this by hand, this is automatically generated based on `r snakemake@input$rmd` -->
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)

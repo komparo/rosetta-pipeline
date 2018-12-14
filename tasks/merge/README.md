@@ -1,4 +1,6 @@
 
+<!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
+
 # Merge
 
 Concatenate all .txt files in the lines folder and write to
