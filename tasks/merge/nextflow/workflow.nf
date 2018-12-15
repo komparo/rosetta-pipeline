@@ -1,6 +1,6 @@
 #!/usr/bin/env nextflow
 
-lines = Channel.fromPath("lines/*.txt").buffer(size:6)
+lines = Channel.fromPath("lines/*.txt").collect()
 
 process merge {
     publishDir './', mode: 'copy'
