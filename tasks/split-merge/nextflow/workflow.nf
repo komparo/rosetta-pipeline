@@ -23,7 +23,7 @@ process reverse {
 /* Collect all reversed files into the "reversed_collection" channel */
 reversed
     .collect()
-    .set {reversed_collection }
+    .set { reversed_collection }
 
 /* Merge all reversed lines */
 process fairytale {
