@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="84.012962mm"
-   height="22.716101mm"
-   viewBox="0 0 84.012956 22.7161"
+   width="86.574982mm"
+   height="29.917337mm"
+   viewBox="0 0 86.574975 29.917337"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
@@ -416,17 +416,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="199.74471"
-     inkscape:cy="34.540283"
+     inkscape:zoom="2.8"
+     inkscape:cx="105.55796"
+     inkscape:cy="83.317603"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-object-midpoints="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="983"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -435,8 +435,8 @@
     <inkscape:grid
        type="xygrid"
        id="grid1000"
-       originx="-60.061884"
-       originy="-249.33929" />
+       originx="-57.499856"
+       originy="-242.13805" />
   </sodipodi:namedview>
   <metadata
      id="metadata5">
@@ -454,7 +454,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-60.061891,-24.944561)">
+     transform="translate(-57.499866,-24.944561)">
     <path
        style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.80000001;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#Arrow1Mend-62-2)"
        d="m 113.16234,33.73956 h 14.83099"
@@ -678,5 +678,163 @@
        y="25.344561"
        rx="2.2677727"
        ry="2.2677727" />
+    <g
+       id="g3412"
+       transform="matrix(0.01436966,0,0,0.01436966,59.893923,46.601643)"
+       style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+      <g
+         id="g24"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+	<path
+   id="path4"
+   d="m 511.958,251.643 c -21.859,26.624 -64.69,24.545 -64.69,24.545 -26.415,113.8 -185.94,171.719 -296.699,143.266 C 39.821,391.011 55.056,258.915 55.056,258.915 h 324.138 c 26.749,0 28.787,-8.129 28.787,-8.129 -23.709,-56.226 12.873,-86.371 12.873,-86.371 28.453,5.089 35.558,53.854 35.558,53.854 23.353,-4.19 42.109,0.794 53.582,5.59 1.149,9.122 1.818,18.39 1.964,27.784 z"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   inkscape:connector-curvature="0" />
+
+	<rect
+   id="rect6"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="207.433"
+   x="89.599998" />
+
+	<rect
+   id="rect8"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="207.433"
+   x="146.64101" />
+
+	<rect
+   id="rect10"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="207.433"
+   x="317.74301" />
+
+	<rect
+   id="rect12"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="207.433"
+   x="260.71201" />
+
+	<rect
+   id="rect14"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="101.763"
+   x="260.71201" />
+
+	<rect
+   id="rect16"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="207.433"
+   x="203.67101" />
+
+	<rect
+   id="rect18"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="154.593"
+   x="146.64101" />
+
+	<rect
+   id="rect20"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="154.593"
+   x="260.71201" />
+
+	<rect
+   id="rect22"
+   height="41.32"
+   width="45.389999"
+   style="fill:#333333;fill-opacity:1;stroke-width:18.41263771"
+   y="154.593"
+   x="203.67101" />
+
+</g>
+      <g
+         id="g26"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g28"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g30"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g32"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g34"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g36"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g38"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g40"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g42"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g44"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g46"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g48"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g50"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g52"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+      <g
+         id="g54"
+         style="fill:#333333;fill-opacity:1;stroke-width:18.41263771">
+</g>
+    </g>
+    <text
+       id="text998-9-6-1-2-1"
+       y="51.419628"
+       x="68.172264"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:3.52777767px;line-height:2;stroke-width:0.26458332"
+         y="51.419628"
+         x="68.172264"
+         id="tspan996-3-6-5-0-7"
+         sodipodi:role="line">rosettapipeline/run-in-docker</tspan></text>
   </g>
 </svg>
