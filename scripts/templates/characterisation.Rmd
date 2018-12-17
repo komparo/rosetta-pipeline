@@ -16,7 +16,7 @@ link_to_tasks <- function(concept) {
     tasks %>%
         keep(~concept %in% .$concepts) %>%
         map_chr(~paste0("[", .$name, "](/tasks/", .$id, ")")) %>% 
-        paste0(collapse = " ")
+        paste0(collapse = ", ")
 }
 ```
 

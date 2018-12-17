@@ -17,7 +17,8 @@ Here we try to create:
 
   - **[Example workflows for each framework with some common workflow
     tasks](tasks)**. They showcase how each framework is used, and where
-    the similarities and differences lie. This is inspired by [Rosetta
+    the similarities and differences lie. They are also useful to learn
+    a particular framework by example. This is inspired by [Rosetta
     code](http://www.rosettacode.org/wiki/Rosetta_Code).
   - **[A working document on the similarities and differences between
     pipeline frameworks](characterisation)**. This document introduces a
@@ -29,7 +30,7 @@ Here we try to create:
   - **[A characterisation of the features of each
     framework](characterisation)**, structured in the same way as the
     working document. It contains the specific characteristics of a
-    framework.
+    framework.lea
 
 ## Structure
 
@@ -43,23 +44,27 @@ workflows.
 
 ## Tasks & examples
 
-| Task                                     | Frameworks                                                                                                                                                                                                                                                                 |
-| :--------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Chain](tasks/chain)                     | [snakemake](tasks/chain/snakemake), [nextflow](tasks/chain/nextflow), [cromwell](tasks/chain/cromwell)                                                                                                                                                                     |
-| [Split merge](tasks/split-merge)         | [snakemake](tasks/split-merge/snakemake), [nextflow](tasks/split-merge/nextflow)                                                                                                                                                                                           |
-| [One task cached](tasks/one-task-cached) | [make](tasks/one-task-cached/make), [snakemake](tasks/one-task-cached/snakemake), [nextflow](tasks/one-task-cached/nextflow), [luigi](tasks/one-task-cached/luigi), [cromwell](tasks/one-task-cached/cromwell)                                                             |
-| [Run in docker](tasks/run-in-docker)     | [nextflow](tasks/run-in-docker/nextflow), [cromwell](tasks/run-in-docker/cromwell)                                                                                                                                                                                         |
-| [Merge](tasks/merge)                     | [snakemake](tasks/merge/snakemake), [nextflow](tasks/merge/nextflow)                                                                                                                                                                                                       |
-| [One task](tasks/one-task)               | [make](tasks/one-task/make), [snakemake](tasks/one-task/snakemake), [nextflow](tasks/one-task/nextflow), [luigi](tasks/one-task/luigi), [airflow](tasks/one-task/airflow), [toil](tasks/one-task/toil), [cromwell](tasks/one-task/cromwell), [drake](tasks/one-task/drake) |
+| Task                                         | Frameworks                                                                                                                                                                                                                                                                 |
+| :------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Merge](tasks/merge)                         | [snakemake](tasks/merge/snakemake), [nextflow](tasks/merge/nextflow)                                                                                                                                                                                                       |
+| [Chain](tasks/chain)                         | [snakemake](tasks/chain/snakemake), [nextflow](tasks/chain/nextflow), [cromwell](tasks/chain/cromwell)                                                                                                                                                                     |
+| [Run in docker](tasks/run-in-docker)         | [nextflow](tasks/run-in-docker/nextflow), [cromwell](tasks/run-in-docker/cromwell)                                                                                                                                                                                         |
+| [One task](tasks/one-task)                   | [make](tasks/one-task/make), [snakemake](tasks/one-task/snakemake), [nextflow](tasks/one-task/nextflow), [luigi](tasks/one-task/luigi), [airflow](tasks/one-task/airflow), [toil](tasks/one-task/toil), [cromwell](tasks/one-task/cromwell), [drake](tasks/one-task/drake) |
+| [One task cached](tasks/one-task-cached)     | [make](tasks/one-task-cached/make), [snakemake](tasks/one-task-cached/snakemake), [nextflow](tasks/one-task-cached/nextflow), [luigi](tasks/one-task-cached/luigi), [cromwell](tasks/one-task-cached/cromwell)                                                             |
+| [Alternative paths](tasks/alternative-paths) | [nextflow](tasks/alternative-paths/nextflow)                                                                                                                                                                                                                               |
+| [Split merge](tasks/split-merge)             | [snakemake](tasks/split-merge/snakemake), [nextflow](tasks/split-merge/nextflow)                                                                                                                                                                                           |
 
 ## Running the examples
 
 1.  Install conda and docker
-2.  Clone this repo
+2.  Clone this repo: `git clone
+    git@github.com:komparo/rosetta-pipeline.git && cd rosettapipeline`
 3.  Install the conda environment: `conda env create -f
     assets/env/environment.yml`
-4.  Run snakemake: `snakemake`. A first build can take a while because
-    all docker containers have to be built.
+4.  Activate the environment: `conda activate rosettapipeline`
+5.  Run snakemake: `snakemake`. A first build can take a while because
+    all docker containers have to be built. The framework to run can
+    also be specified using `snakemake --config framework_id=nextflow`.
 
 ## Contributing
 
