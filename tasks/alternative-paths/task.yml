@@ -13,5 +13,4 @@ description: |
   awk -v min=1 -v max=10 'BEGIN{srand(); print int(min+rand()*(max-min+1))}'
   ```
 concepts:
-  - Static vs dynamic
   - Alternative paths

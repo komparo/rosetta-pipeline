@@ -57,10 +57,8 @@ In the _pull_ model, the final outputs are specified, and the framework will loo
 
 Some frameworks construct the complete DAG before executing any tasks (_static_), while others allow some changes in the DAG depending on the output of tasks (_dynamic_). A DAG can be dynamic at different levels:
 
-- Number of inputs and outputs: snakemake, nextflow
-- Alternative paths: nextflow
-
-Related tasks: `r link_to_tasks("Static vs dynamic")`
+- Number of inputs and outputs not known from the start: snakemake, nextflow. Related tasks: `r link_to_tasks("Unknown number of inputs")`
+- Alternative paths based on the output of previous tasks: nextflow. Related tasks: `r link_to_tasks("Alternative paths")`
 
 ## Inputs
 

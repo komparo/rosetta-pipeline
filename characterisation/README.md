@@ -74,11 +74,10 @@ Some frameworks construct the complete DAG before executing any tasks
 (*static*), while others allow some changes in the DAG depending on the
 output of tasks (*dynamic*). A DAG can be dynamic at different levels:
 
-  - Number of inputs and outputs: snakemake, nextflow
-  - Alternative paths: nextflow
-
-Related tasks: [Alternative paths](/tasks/alternative-paths), [Split
-merge](/tasks/split-merge)
+  - Number of inputs and outputs not known from the start: snakemake,
+    nextflow. Related tasks: [Split merge](/tasks/split-merge)
+  - Alternative paths based on the output of previous tasks: nextflow.
+    Related tasks: [Alternative paths](/tasks/alternative-paths)
 
 ## Inputs
 

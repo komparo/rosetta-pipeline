@@ -21,4 +21,4 @@ description: |
   cat split/*2 > fairytale.txt
   ```
 concepts:
-  - Static vs dynamic
+  - Unknown number of inputs
