@@ -30,7 +30,7 @@ Here we try to create:
   - **[A characterisation of the features of each
     framework](characterisation)**, structured in the same way as the
     working document. It contains the specific characteristics of a
-    framework.lea
+    framework.
 
 ## Structure
 
