@@ -5,7 +5,7 @@ import os.path
 FRAMEWORK_EXAMPLES = {
     "make": ["one-task", "one-task-cached"],
     "snakemake": ["one-task", "one-task-cached", "chain", "merge", "split-merge"],
-    "nextflow": ["one-task", "one-task-cached", "chain", "merge", "split-merge", "run-in-docker"],
+    "nextflow": ["one-task", "one-task-cached", "chain", "merge", "split-merge", "run-in-docker", "alternative-paths"],
     "luigi": ["one-task", "one-task-cached"],
     "airflow": ["one-task"],
     "toil": ["one-task"],
