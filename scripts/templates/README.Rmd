@@ -36,6 +36,7 @@ Here we try to create:
 
 ```{r, echo = FALSE}
 link <- function(label, url) {paste0("[", label, "](", url, ")")}
+tasks <- tasks[order(map_int(tasks, ~length(.$framework_ids)), decreasing = TRUE)]
 map_df(tasks, function(task) {
   tibble(
     Task = link(task$name, paste0("tasks/", task$id)),
