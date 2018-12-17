@@ -49,7 +49,7 @@ map_df(tasks, function(task) {
 ## Running the examples
 
 1. Install conda and docker
-2. Clone this repo: `git clone git@github.com:komparo/rosetta-pipeline.git && cd rosettapipeline`
+2. Clone this repo: `git clone git@github.com:komparo/rosetta-pipeline.git && cd rosetta-pipeline`
 3. Install the conda environment: `conda env create -f assets/env/environment.yml`
 4. Activate the environment: `conda activate rosettapipeline`
 5. Run snakemake: `snakemake`. A first build can take a while because all docker containers have to be built. The framework to run can also be specified using `snakemake --config framework_id=nextflow`.

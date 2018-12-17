@@ -186,7 +186,7 @@ File storage is tightly interlinked with scheduling, because some data may not b
 
 ### Development
 
-During development, it can be useful to enter the workflow with a shell at a particular point, with the complete environment and inputs available.
+During development, it can be useful to enter the workflow interactively, with the complete environment and inputs available. 
 
 ### Debugging
 
