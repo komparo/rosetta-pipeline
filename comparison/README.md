@@ -5,7 +5,7 @@
 
 Briefly, a pipeline framework specifies a set of jobs
 (**specification**), each with some **inputs** and **outputs**, and
-executes theses jobs (**execution**). It also provides a user interface
+executes these jobs (**execution**). It also provides a user interface
 to develop, run and explore pipelines (**usability**), and can keep
 track of which jobs were used to produce a particular output
 (**provenance**).
@@ -25,13 +25,14 @@ frameworks*
 When jobs share some inputs and/or outputs, for example the same
 command, they are often grouped into a set of *rules*.
 
-*Rules* are also known as processes (nextflow), tools (CWL), tasks (WDL)
+*Rules* are also known as processes (Nextflow), tools (CWL), tasks (WDL)
 and phases (martian).
 
-There are several ways to create individual jobs based on the
-specification of a rule:
+There are several ways to create individual jobs from a rule:
 
-  - Wildcards. Examples: make, snakemake
+  - Wildcards within file names: make, snakemake
+  - Specifying the inputs of each job: CWL
+  - Looping over inputs: WDL
 
 ### Language
 
@@ -92,9 +93,9 @@ Some frameworks construct the complete DAG before executing any jobs
 output of jobs (*dynamic*). A DAG can be dynamic at different levels:
 
   - Number of inputs and outputs not known from the start: snakemake,
-    nextflow. Related jobs: [Split merge](/tasks/split-merge)
+    nextflow. Related tasks: [Split merge](/tasks/split-merge)
   - Alternative paths based on the output of previous jobs: nextflow.
-    Related jobs: [Alternative paths](/tasks/alternative-paths)
+    Related tasks: [Alternative paths](/tasks/alternative-paths)
 
 ### Modularity
 
@@ -102,15 +103,15 @@ When dealing with large workflows or in a collaborative fashion, it can
 be useful to isolate parts of the workflow as modules. This modularity
 can work at different levels:
 
-  - The module is integrated in the pipeline as-is. Examples: snakemake
-    (include)
-  - The module is included as a job within the pipeline, with its own
-    input and output. Examples: snakemake (subworkflows), WDL
-    (subworkflows).
+  - The module is included in the pipeline as-is. Examples: snakemake
+    (include). Related tasks:
+  - The module is included as a separate rule within the pipeline, with
+    its own input and output. Examples: snakemake (subworkflows), WDL
+    (subworkflows). Related tasks:
 
 If the pipeline is specified in a multi-purpose programming language,
 modularity of the pipeline is also possible within the language itself.
-Examples: airflow
+Examples: airflow.
 
 <!---- Extend discussion ------->
 
@@ -165,12 +166,13 @@ levels:
     Examples: virtual machines, docker containers, singularity
     containers
 
-Related jobs: [Run in docker](/tasks/run-in-docker)
+Related tasks: [Run in docker](/tasks/run-in-docker)
 
 #### Random state
 
-The random state of the environment. For example, the seed of the
-pseudorandom number generator.
+The state of the (pseudo)random number generator within the environment.
+For example, the seed of the pseudorandom number generator. This can be
+programming language specific.
 
 This type of input is rarely handled by a framework.
 
@@ -192,8 +194,6 @@ load any inputs which are not specified as such. Examples:
 
 ### Validation
 
-TODO
-
 <!--- Martian and CWL --->
 
 ## Caching
@@ -202,7 +202,7 @@ TODO
 
 Also known as *incrementality*
 
-Related jobs: [One task cached](/tasks/one-task-cached)
+Related tasks: [One task cached](/tasks/one-task-cached)
 
 ### Levels of caching
 
