@@ -9,9 +9,11 @@ Status](https://travis-ci.com/komparo/rosetta-pipeline.svg?branch=master)](https
 [A lot of pipeline frameworks
 exist](https://github.com/pditommaso/awesome-pipeline), each containing
 a different (and sometimes exotic) syntax. Because of this, it can be
-confusing to choose the appropriate framework for a particular use case,
-which is further complicated by inconsistent terminology usage across
-frameworks.
+confusing to choose the appropriate framework for a particular use case.
+This is further complicated by an inconsistent terminology between
+frameworks. For example: rules (make and snakemake), processes
+(nextflow), tasks (WDL), jobs (CWL) and stages (martian) all refer to
+the exact same concept in different pipeline specifications.
 
 Here we try to create:
 
@@ -27,7 +29,7 @@ Here we try to create:
     is meant to be neutral and objective, in the sense that it simply
     lists possible features of pipeline frameworks, along with some
     advantages and disadvantages of having that particular feature.
-  - **[A characterisation of the features of each
+  - **[A comparison of the features of each
     framework](characterisation)**, structured in the same way as the
     working document. It contains the specific characteristics of a
     framework.
@@ -58,13 +60,13 @@ workflows.
 
 1.  Install conda and docker
 2.  Clone this repo: `git clone
-    git@github.com:komparo/rosetta-pipeline.git && cd rosettapipeline`
+    git@github.com:komparo/rosetta-pipeline.git && cd rosetta-pipeline`
 3.  Install the conda environment: `conda env create -f
     assets/env/environment.yml`
 4.  Activate the environment: `conda activate rosettapipeline`
 5.  Run snakemake: `snakemake`. A first build can take a while because
-    all docker containers have to be built. The framework to run can
-    also be specified using `snakemake --config framework_id=nextflow`.
+    all docker containers have to be built. To run only one framework,
+    use `snakemake --config framework_id=nextflow`.
 
 ## Contributing
 

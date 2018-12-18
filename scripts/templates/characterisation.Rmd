@@ -12,7 +12,7 @@ library(tidyverse)
 # "output/tasks.json"
 tasks <- jsonlite::read_json(snakemake@input$tasks, simplifyVector = TRUE, simplifyMatrix = FALSE, simplifyDataFrame = FALSE)
 
-link_to_tasks <- function(concept) {
+link_to_jobs <- function(concept) {
     tasks %>%
         keep(~concept %in% .$concepts) %>%
         map_chr(~paste0("[", .$name, "](/tasks/", .$id, ")")) %>% 
@@ -22,13 +22,23 @@ link_to_tasks <- function(concept) {
 
 # Pipeline frameworks
 
-Briefly, a pipeline framework specifies a set of tasks (**specification**), each with some **inputs** and **outputs**, and executes theses tasks (**execution**). It also provides a user interface to develop, run and explore pipelines (**usability**), and can also keep track of which tasks were used to produce a particular output (**provenance**).
+Briefly, a pipeline framework specifies a set of jobs (**specification**), each with some **inputs** and **outputs**, and executes theses jobs (**execution**). It also provides a user interface to develop, run and explore pipelines (**usability**), and can also keep track of which jobs were used to produce a particular output (**provenance**).
 
-Also known as: _workflow managers_, _workflow frameworks_
+_Pipeline frameworks_ are also known as: _workflow managers_, _workflow frameworks_
 
 ## Specification
 
-> Specifying the tasks, what inputs and outputs they use, and in what order they are executed
+> Specifying the jobs, what inputs and outputs they use, and in what order they are executed
+
+### Rules
+
+When jobs share some inputs and/or output, for example the same command, they are often grouped into a set of _rules_.
+
+Rules are also known as processes (nextflow), tools (CWL) and tasks (WDL).
+
+There are several ways to create individual jobs based on the specification of a rule:
+
+- Wildcards. Examples: 
 
 ### Language
 
@@ -43,28 +53,39 @@ While the hybrid method is the most common among existing frameworks, the extent
 
 ### Constructing the DAG
 
-Dependencies between tasks can be directly specified between tasks (examples: luigi) or between output and input data (examples: snakemake, nextflow, cwl). In the end, this produces a directed acyclic graph (DAG), which is executed starting from those tasks without any ingoing edges, and ends with those tasks without any outgoing edges.
+Dependencies between jobs can be directly specified between jobs (examples: luigi) or between output and input data (examples: snakemake, nextflow, cwl). In the end, this produces a directed acyclic graph (DAG), which is executed starting from those jobs without any ingoing edges, and ends with those jobs without any outgoing edges.
 
 #### Pull vs push
 
 There are two main models to create a DAG from a specification: push and pull.
 
-In the _push_ model (also known as _data flow_), a task is ran once inputs are available. The workflow starts from those tasks for which all inputs are available, and uses the output of these tasks to run other tasks which depend on these outputs. Examples: nextflow, WDL
+In the _push_ model (also known as _data flow_), a job is ran once inputs are available. The workflow starts from those jobs for which all inputs are available, and uses the output of these jobs to run other jobs which depend on these outputs. Examples: nextflow, WDL
 
-In the _pull_ model, the final outputs are specified, and the framework will look for those tasks that can provide these outputs. If not all inputs of these tasks are available, it will try to iteratively resolve the inputs using the outputs of other tasks. Examples: snakemake
+In the _pull_ model, the final outputs are specified, and the framework will look for those jobs that can provide these outputs. If not all inputs of these jobs are available, it will try to iteratively resolve the inputs using the outputs of other jobs. Examples: snakemake
 
 #### Static vs dynamic
 
-Some frameworks construct the complete DAG before executing any tasks (_static_), while others allow some changes in the DAG depending on the output of tasks (_dynamic_). A DAG can be dynamic at different levels:
+Some frameworks construct the complete DAG before executing any jobs (_static_), while others allow some changes in the DAG depending on the output of jobs (_dynamic_). A DAG can be dynamic at different levels:
 
-- Number of inputs and outputs not known from the start: snakemake, nextflow. Related tasks: `r link_to_tasks("Unknown number of inputs")`
-- Alternative paths based on the output of previous tasks: nextflow. Related tasks: `r link_to_tasks("Alternative paths")`
+- Number of inputs and outputs not known from the start: snakemake, nextflow. Related jobs: `r link_to_jobs("Unknown number of inputs")`
+- Alternative paths based on the output of previous jobs: nextflow. Related jobs: `r link_to_jobs("Alternative paths")`
+
+### Modularity
+
+When dealing with large workflows or in a collaborative fashion, it can be useful to isolate parts of the workflow as modules. This modularity can work at different levels:
+
+- The module is integrated in the pipeline as-is. Examples: snakemake (include)
+- The module is included as a job within the pipeline, with its own input and output. Examples: snakemake (subworkflows), WDL (subworkflows).
+
+If the pipeline is specified in a multi-purpose programming language, modularity of the pipeline is also possible within the language itself. Examples: airflow
+
+<!---- Extend discussion ------->
 
 ## Inputs
 
-> What is consumed by a task
+> What is consumed by a job
 
-A task and workflow can only be reproducible when all possible inputs are defined.
+A job and workflow can only be reproducible when all possible inputs are defined.
 
 ### Types
 
@@ -76,7 +97,7 @@ Any data file, which can be present locally, on a shared files system, on the cl
 
 #### Command
 
-The code or command that is run by the task.
+The code or command that is run by the job.
 
 Most frameworks run a command by default inside the default shell of the environment. Others, such as drake and toil, specifiy the code to be run within the programming language of the [specification](#specification).
 
@@ -99,7 +120,7 @@ Where the code is run. Environments can be constrained at different levels:
 - Package manager: Specifying the libraries/packages and their versions that are installed on the system. Examples: conda
 - OS: Specifying the full operating system and its libraries. Examples: virtual machines, docker containers, singularity containers
 
-Related tasks: `r link_to_tasks("Environment")`
+Related jobs: `r link_to_jobs("Environment")`
 
 #### Random state
 
@@ -113,20 +134,20 @@ The reproducibility of a pipeline hinges on how much of the inputs are specified
 
 Some frameworks enforce reproducibility by prohibiting the command to load any inputs which are not specified as such. Examples:
 
-- Only make specified input files available to the task: Cromwell, nextflow
+- Only make specified input files available to the job: Cromwell, nextflow
 - Require an environment to be specified: Argo
 
 ## Outputs
 
-> What is produced by a task
+> What is produced by a job
 
 ## Caching
 
-> Tasks are not needlessly rerun when output is already available
+> jobs are not needlessly rerun when output is already available
 
 Also known as _incrementality_
 
-Related tasks: `r link_to_tasks("Caching")`
+Related jobs: `r link_to_jobs("Caching")`
 
 ### Levels of caching
 
@@ -141,7 +162,7 @@ Only the latter ensures full reproducibility and can be used for any type of inp
 
 Caching can be enabled by default (for example: snakemake), or enabled through the user interface (for example: nextflow).
 
-While developing, it can be useful to cache outputs even if some of the inputs have changed. For example, snakemake will by default not rerun a task if a command has changed.
+While developing, it can be useful to cache outputs even if some of the inputs have changed. For example, snakemake will by default not rerun a job if a command has changed.
 
 ## Provenance
 
@@ -158,7 +179,7 @@ Provenance can be defined for different types of input.
 
 ### Scheduling
 
-> Where are the tasks ran?
+> Where are the jobs ran?
 
 - Local
 - Batch system
@@ -171,7 +192,7 @@ Tightly linked with data storage.
 
 ### Resources
 
-> How many resources can a task consume?
+> How many resources can a job consume?
 
 - Number of cpus
 - User time
@@ -190,7 +211,7 @@ During development, it can be useful to enter the workflow interactively, with t
 
 ### Debugging
 
-To debug a particular task, it can be useful to enter the workflow with a shell at a particular point, with the complete environment and inputs available.
+To debug a particular job, it can be useful to enter the workflow with a shell at a particular point, with the complete environment and inputs available.
 
 <!----- snakemake python debug ------>
 <!----- nextflow `bash .command.run` ----->

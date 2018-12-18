@@ -18,13 +18,13 @@ tasks <- jsonlite::read_json(snakemake@input$tasks, simplifyVector = TRUE, simpl
 
 [![Build Status](https://travis-ci.com/komparo/rosetta-pipeline.svg?branch=master)](https://travis-ci.com/komparo/rosetta-pipeline)
 
-[A lot of pipeline frameworks exist](https://github.com/pditommaso/awesome-pipeline), each containing a different (and sometimes exotic) syntax. Because of this, it can be confusing to choose the appropriate framework for a particular use case, which is further complicated by inconsistent terminology usage across frameworks.
+[A lot of pipeline frameworks exist](https://github.com/pditommaso/awesome-pipeline), each containing a different (and sometimes exotic) syntax. Because of this, it can be confusing to choose the appropriate framework for a particular use case. This is further complicated by an inconsistent terminology between frameworks. For example: rules (make and snakemake), processes (nextflow), tasks (WDL), jobs (CWL) and stages (martian) all refer to the exact same concept in different pipeline specifications.
 
 Here we try to create:
 
 - **[Example workflows for each framework with some common workflow tasks](tasks)**. They showcase how each framework is used, and where the similarities and differences lie. They are also useful to learn a particular framework by example. This is inspired by [Rosetta code](http://www.rosettacode.org/wiki/Rosetta_Code).
 - **[A working document on the similarities and differences between pipeline frameworks](characterisation)**. This document introduces a consistent terminology of features that a pipeline framework can have, while listing alternative terms along the way. The discussion is meant to be neutral and objective, in the sense that it simply lists possible features of pipeline frameworks, along with some advantages and disadvantages of having that particular feature.
-- **[A characterisation of the features of each framework](characterisation)**, structured in the same way as the working document. It contains the specific characteristics of a framework. 
+- **[A comparison of the features of each framework](characterisation)**, structured in the same way as the working document. It contains the specific characteristics of a framework.
 
 ## Structure
 
@@ -52,7 +52,7 @@ map_df(tasks, function(task) {
 2. Clone this repo: `git clone git@github.com:komparo/rosetta-pipeline.git && cd rosetta-pipeline`
 3. Install the conda environment: `conda env create -f assets/env/environment.yml`
 4. Activate the environment: `conda activate rosettapipeline`
-5. Run snakemake: `snakemake`. A first build can take a while because all docker containers have to be built. The framework to run can also be specified using `snakemake --config framework_id=nextflow`.
+5. Run snakemake: `snakemake`. A first build can take a while because all docker containers have to be built. To run only one framework, use `snakemake --config framework_id=nextflow`.
 
 ## Contributing
 
