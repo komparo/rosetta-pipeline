@@ -1,5 +1,11 @@
 name: snakemake
 
+specification:
+  specifications: 
+    - snakemake
+  notes: >
+    CWL workflows can run inside individual rules, instead of specifying the script or command
+
 incrementality:
   input:
     data: 
@@ -26,10 +32,6 @@ environment:
 interface:
   supported:
     - cli
-
-specification:
-  - snakemake
-  - CWL
 
 provenance:
 

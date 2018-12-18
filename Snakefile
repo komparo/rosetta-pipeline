@@ -44,7 +44,7 @@ def list_example_inputs(wildcards):
 # actual snakemake workflow
 rule all:
     input:
-        ["README.md", "characterisation/README.md"] +
+        ["README.md", "comparison/README.md"] +
         [f"output/tasks/{task_id}/{framework_id}/result.yml" for framework_id, task_id in EXAMPLES] +
         [f"tasks/{task_id}/README.md" for task_id in TASK_IDS]
 
@@ -123,9 +123,9 @@ rule render_task_readmes:
         rmd = "scripts/templates/task.Rmd"
     script: "scripts/templates/task.Rmd"
 
-rule render_characterisation:
-    output: "characterisation/README.md"
+rule render_comparison:
+    output: "comparison/README.md"
     input:
-        rmd = "scripts/templates/characterisation.Rmd",
+        rmd = "scripts/templates/comparison.Rmd",
         tasks = "output/tasks.json"
-    script: "scripts/templates/characterisation.Rmd"
+    script: "scripts/templates/comparison.Rmd"

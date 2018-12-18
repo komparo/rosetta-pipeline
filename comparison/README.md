@@ -1,12 +1,12 @@
 
-<!-- Do not edit this by hand, this is automatically generated based on scripts/templates/characterisation.Rmd -->
+<!-- Do not edit this by hand, this is automatically generated based on scripts/templates/comparison.Rmd -->
 
 # Pipeline frameworks
 
 Briefly, a pipeline framework specifies a set of jobs
 (**specification**), each with some **inputs** and **outputs**, and
 executes theses jobs (**execution**). It also provides a user interface
-to develop, run and explore pipelines (**usability**), and can also keep
+to develop, run and explore pipelines (**usability**), and can keep
 track of which jobs were used to produce a particular output
 (**provenance**).
 
@@ -20,16 +20,16 @@ frameworks*
 
 ### Rules
 
-When jobs share some inputs and/or output, for example the same command,
-they are often grouped into a set of *rules*.
+When jobs share some inputs and/or outputs, for example the same
+command, they are often grouped into a set of *rules*.
 
-Rules are also known as processes (nextflow), tools (CWL) and tasks
-(WDL).
+Rules are also known as processes (nextflow), tools (CWL), tasks (WDL)
+and phases (martian).
 
 There are several ways to create individual jobs based on the
 specification of a rule:
 
-  - Wildcards. Examples:
+  - Wildcards. Examples: make, snakemake
 
 ### Language
 
@@ -52,6 +52,7 @@ There are different ways to specify a workflow:
     language. It combines the conciseness of a DSL with the familiarity
     and flexibility of a multi-purpose language. Examples: CWL,
     Snakemake, Nextflow
+  - Graphical user interface. Examples: Galaxy
 
 While the hybrid method is the most common among existing frameworks,
 the extent to which a DSL and multi-purpose language are intermixed can
@@ -186,6 +187,12 @@ load any inputs which are not specified as such. Examples:
 ## Outputs
 
 > What is produced by a job
+
+### Validation
+
+TODO
+
+<!--- Martian and CWL has this--->
 
 ## Caching
 

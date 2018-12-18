@@ -1,7 +1,7 @@
 
 <!-- Do not edit this by hand, this is automatically generated based on scripts/templates/README.Rmd -->
 
-# Rosetta pipeline: A showcase and characterisation of pipeline frameworks
+# Rosetta pipeline: A showcase and comparison of pipeline frameworks
 
 [![Build
 Status](https://travis-ci.com/komparo/rosetta-pipeline.svg?branch=master)](https://travis-ci.com/komparo/rosetta-pipeline)
@@ -11,7 +11,7 @@ exist](https://github.com/pditommaso/awesome-pipeline), each containing
 a different (and sometimes exotic) syntax. Because of this, it can be
 confusing to choose the appropriate framework for a particular use case.
 This is further complicated by an inconsistent terminology between
-frameworks. For example: rules (make and snakemake), processes
+frameworks. For example, rules (make and snakemake), processes
 (nextflow), tasks (WDL), jobs (CWL) and stages (martian) all refer to
 the exact same concept in different pipeline specifications.
 
@@ -23,23 +23,21 @@ Here we try to create:
     a particular framework by example. This is inspired by [Rosetta
     code](http://www.rosettacode.org/wiki/Rosetta_Code).
   - **[A working document on the similarities and differences between
-    pipeline frameworks](characterisation)**. This document introduces a
+    pipeline frameworks](comparison)**. This document introduces a
     consistent terminology of features that a pipeline framework can
     have, while listing alternative terms along the way. The discussion
     is meant to be neutral and objective, in the sense that it simply
     lists possible features of pipeline frameworks, along with some
     advantages and disadvantages of having that particular feature.
-  - **[A comparison of the features of each
-    framework](characterisation)**, structured in the same way as the
-    working document. It contains the specific characteristics of a
-    framework.
+  - **[A comparison of the features of each framework](comparison)**,
+    structured in the same way as the working document.
 
 ## Structure
 
   - [tasks](tasks) contains the task description and examples for each
     framework.
-  - [characterisation](characterisation) contains the [working
-    document](characterisation/README.md).
+  - [comparison](comparison) contains the [working
+    document](comparison/README.md) and a comparison of frameworks.
   - [containers](containers) contains the dockerfiles for each
     framework. These are used for executing the example
 workflows.

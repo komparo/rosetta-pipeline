@@ -6,7 +6,7 @@ To add a framework you need to:
 
 1. Create a Dockerfile in the containers folder. Make sure to install docker or singularity in this dockerfile as well if any examples make use of it.
 2. Create (in the very least) a one-task example in the [tasks/write-file](tasks/write-file) folder. See ["Add a new example"](#add-a-new-example) on how to add an example. Of course, the more examples you can add for this framework the better!
-3. Add a characterisation in [characterisation/frameworks](characterisation/frameworks), and when applicable, in [characterisation/specifications](characterisation/specifications). See ["Characterizing a framework"](#characterizing-a-framework).
+3. Characterise the framework in [comparison/frameworks](comparison/frameworks), and when applicable, in [comparison/specifications](comparison/specifications). See ["Characterizing a framework"](#characterizing-a-framework).
 4. Add the framework to [.travis.yml](.travis.yml). This framework and all of its dependencies will then be tested as a separate job on travis.
 
 ## Add a new example
@@ -15,8 +15,8 @@ Each example should contain a "run.sh" file which contains the command(s) that w
 
 Add the example in [Snakefile](Snakefile) within the appropriate framework.
 
-## Characterizing a framework
+## Characterising a framework
 
-Still a WIP
+Work in progress
 
 When citing articles, use the style followed by manubot, i.e. `[@doi:10.1101/276907]`.
