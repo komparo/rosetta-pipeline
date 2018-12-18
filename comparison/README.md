@@ -10,6 +10,8 @@ to develop, run and explore pipelines (**usability**), and can keep
 track of which jobs were used to produce a particular output
 (**provenance**).
 
+*Pipelines* are also known as *workflows*.
+
 *Pipeline frameworks* are also known as: *workflow managers*, *workflow
 frameworks*
 
@@ -23,7 +25,7 @@ frameworks*
 When jobs share some inputs and/or outputs, for example the same
 command, they are often grouped into a set of *rules*.
 
-Rules are also known as processes (nextflow), tools (CWL), tasks (WDL)
+*Rules* are also known as processes (nextflow), tools (CWL), tasks (WDL)
 and phases (martian).
 
 There are several ways to create individual jobs based on the
@@ -62,11 +64,11 @@ anywhere in the case of snakemake.
 
 ### Constructing the DAG
 
-Dependencies between jobs can be directly specified between jobs
-(examples: luigi) or between output and input data (examples: snakemake,
-nextflow, cwl). In the end, this produces a directed acyclic graph
-(DAG), which is executed starting from those jobs without any ingoing
-edges, and ends with those jobs without any outgoing edges.
+Dependencies between jobs can be directly specified between the jobs
+themselves (examples: luigi) or between outputs and input (examples:
+snakemake, nextflow, cwl). In the end, this produces a directed acyclic
+graph (DAG), which is executed starting from those jobs without any
+ingoing edges, and ends with those jobs without any outgoing edges.
 
 #### Pull vs push
 
@@ -192,7 +194,7 @@ load any inputs which are not specified as such. Examples:
 
 TODO
 
-<!--- Martian and CWL has this--->
+<!--- Martian and CWL --->
 
 ## Caching
 
@@ -279,8 +281,10 @@ To debug a particular job, it can be useful to enter the workflow with a
 shell at a particular point, with the complete environment and inputs
 available.
 
-<!----- snakemake python debug ------>
+<!--- snakemake python debug --->
 
-<!----- nextflow `bash .command.run` ----->
+<!--- nextflow `bash .command.run` --->
 
 ### Graphical user interface
+
+<!--- Galaxy --->

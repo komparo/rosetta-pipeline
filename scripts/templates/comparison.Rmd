@@ -24,6 +24,8 @@ link_to_jobs <- function(concept) {
 
 Briefly, a pipeline framework specifies a set of jobs (**specification**), each with some **inputs** and **outputs**, and executes theses jobs (**execution**). It also provides a user interface to develop, run and explore pipelines (**usability**), and can keep track of which jobs were used to produce a particular output (**provenance**).
 
+_Pipelines_ are also known as _workflows_.
+
 _Pipeline frameworks_ are also known as: _workflow managers_, _workflow frameworks_
 
 ## Specification
@@ -34,7 +36,7 @@ _Pipeline frameworks_ are also known as: _workflow managers_, _workflow framewor
 
 When jobs share some inputs and/or outputs, for example the same command, they are often grouped into a set of _rules_.
 
-Rules are also known as processes (nextflow), tools (CWL), tasks (WDL) and phases (martian).
+_Rules_ are also known as processes (nextflow), tools (CWL), tasks (WDL) and phases (martian).
 
 There are several ways to create individual jobs based on the specification of a rule:
 
@@ -54,7 +56,7 @@ While the hybrid method is the most common among existing frameworks, the extent
 
 ### Constructing the DAG
 
-Dependencies between jobs can be directly specified between jobs (examples: luigi) or between output and input data (examples: snakemake, nextflow, cwl). In the end, this produces a directed acyclic graph (DAG), which is executed starting from those jobs without any ingoing edges, and ends with those jobs without any outgoing edges.
+Dependencies between jobs can be directly specified between the jobs themselves (examples: luigi) or between outputs and input (examples: snakemake, nextflow, cwl). In the end, this produces a directed acyclic graph (DAG), which is executed starting from those jobs without any ingoing edges, and ends with those jobs without any outgoing edges.
 
 #### Pull vs push
 
@@ -146,7 +148,7 @@ Some frameworks enforce reproducibility by prohibiting the command to load any i
 
 TODO
 
-<!--- Martian and CWL has this--->
+<!--- Martian and CWL --->
 
 ## Caching
 
@@ -220,7 +222,9 @@ During development, it can be useful to enter the workflow interactively, with t
 
 To debug a particular job, it can be useful to enter the workflow with a shell at a particular point, with the complete environment and inputs available.
 
-<!----- snakemake python debug ------>
-<!----- nextflow `bash .command.run` ----->
+<!--- snakemake python debug --->
+<!--- nextflow `bash .command.run` --->
 
 ### Graphical user interface
+
+<!--- Galaxy --->
