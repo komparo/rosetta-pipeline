@@ -1,0 +1,5 @@
+rule all:
+    input: "hello-world.md", "hello-mars.md"
+
+include: "world.smk"
+include: "mars.smk"

@@ -1,0 +1,8 @@
+name: One job
+description: |
+    _Run two jobs each as a module which is included in the main pipeline as is_
+
+    ---
+
+    Write `hello world` to "hello-world.md" in the first module
+    Write `hello mars` to "hello-mars.md" in the second module
