@@ -25,12 +25,12 @@ frameworks*
 When jobs share some inputs and/or outputs, for example the same
 command, they are often grouped into a set of *rules*.
 
-*Rules* are also known as processes (Nextflow), tools (CWL), tasks (WDL)
-and phases (martian).
+*Rules* are also known as processes (Nextflow), tools (CWL), tasks (WDL,
+Luigi) and phases (martian).
 
 There are several ways to create individual jobs from a rule:
 
-  - Wildcards within file names: make, snakemake
+  - Wildcards within file names: make, Snakemake
   - Specifying the inputs of each job: CWL
   - Looping over inputs: WDL
 
@@ -46,28 +46,29 @@ There are different ways to specify a workflow:
     such a language is tuned towards workflows, it can be very concise,
     but at the expense of requiring users to learn a new language or
     syntax. Examples: WDL
-  - Programming language: A multi-purpose language in which the workflow
-    is specified, by using existing object-oriented or functional
-    features. Examples: Luigi
-  - Hybrid: A combination of a DSL and a multi-purpose programming
+  - Programming language: A general-purpose language in which the
+    workflow is specified, by using existing object-oriented or
+    functional features. Examples: Luigi
+  - Hybrid: A combination of a DSL and a general-purpose programming
     language. While the specification is still interpreted using the
     framework, parts of it are evaluated within the programming
     language. It combines the conciseness of a DSL with the familiarity
-    and flexibility of a multi-purpose language. Examples: CWL,
+    and flexibility of a general-purpose language. Examples: CWL,
     Snakemake, Nextflow
-  - Graphical user interface. Examples: Galaxy
+  - Graphical user interface. Internally, these workflows are usually
+    represented as a flat file. Examples: Galaxy.
 
 While the hybrid method is the most common among existing frameworks,
-the extent to which a DSL and multi-purpose language are intermixed can
-vary considerably. For example, CWL only allows the use of javascript in
-parts of the workflow, while the use of python is allowed almost
-anywhere in the case of snakemake.
+the extent to which a DSL and general-purpose language are intermixed
+can vary considerably. For example, the CWL specification only allows
+the use of javascript in parts of the workflow, while the use of python
+is allowed almost anywhere in the case of Snakemake.
 
 ### Constructing the DAG
 
 Dependencies between jobs can be directly specified between the jobs
 themselves (examples: luigi) or between outputs and input (examples:
-snakemake, nextflow, cwl). In the end, this produces a directed acyclic
+Snakemake, nextflow, cwl). In the end, this produces a directed acyclic
 graph (DAG), which is executed starting from those jobs without any
 ingoing edges, and ends with those jobs without any outgoing edges.
 
@@ -84,7 +85,9 @@ jobs which depend on these outputs. Examples: nextflow, WDL
 In the *pull* model, the final outputs are specified, and the framework
 will look for those jobs that can provide these outputs. If not all
 inputs of these jobs are available, it will try to iteratively resolve
-the inputs using the outputs of other jobs. Examples: snakemake
+the inputs using the outputs of other jobs. Examples: Snakemake
+
+Related tasks: [Chain](/tasks/chain)
 
 #### Static vs dynamic
 
@@ -92,7 +95,7 @@ Some frameworks construct the complete DAG before executing any jobs
 (*static*), while others allow some changes in the DAG depending on the
 output of jobs (*dynamic*). A DAG can be dynamic at different levels:
 
-  - Number of inputs and outputs not known from the start: snakemake,
+  - Number of inputs and outputs not known from the start: Snakemake,
     nextflow. Related tasks: [Split merge](/tasks/split-merge)
   - Alternative paths based on the output of previous jobs: nextflow.
     Related tasks: [Alternative paths](/tasks/alternative-paths)
@@ -103,13 +106,13 @@ When dealing with large workflows or in a collaborative fashion, it can
 be useful to isolate parts of the workflow as modules. This modularity
 can work at different levels:
 
-  - The module is included in the pipeline as-is. Examples: snakemake
+  - The module is included in the pipeline as-is. Examples: Snakemake
     (include). Related tasks:
   - The module is included as a separate rule within the pipeline, with
-    its own input and output. Examples: snakemake (subworkflows), WDL
+    its own input and output. Examples: Snakemake (subworkflows), WDL
     (subworkflows). Related tasks:
 
-If the pipeline is specified in a multi-purpose programming language,
+If the pipeline is specified in a general-purpose programming language,
 modularity of the pipeline is also possible within the language itself.
 Examples: airflow.
 
@@ -124,16 +127,17 @@ defined.
 
 ### Types
 
-There are different types of inputs
+There are different types of inputs:
 
 #### File
 
 Any data file, which can be present locally, on a shared files system,
 on the cloud or on some other web server.
 
-#### Command
+#### Code
 
-The code or command that is run by the job.
+The code that is run by the job. This can be one command, or multiple
+commands specified as a script.
 
 Most frameworks run a command by default inside the default shell of the
 environment. Others, such as drake and toil, specifiy the code to be run
@@ -141,8 +145,8 @@ within the programming language of the [specification](#specification).
 
 Some frameworks provide wrappers for some common shell commands:
 
-  - Direct rendering of R Markdown files: snakemake
-  - Running a script: snakemake
+  - Direct rendering of R Markdown files: Snakemake
+  - Running a script: Snakemake
 
 #### Parameter
 
@@ -176,13 +180,15 @@ programming language specific.
 
 This type of input is rarely handled by a framework.
 
-### Reproducibility
+### Constriction
 
 The reproducibility of a pipeline hinges on how much of the inputs are
-specified.
+specified, and whether the script uses any unspecified inputs which may
+be different on another system.
 
-Some frameworks enforce reproducibility by prohibiting the command to
-load any inputs which are not specified as such. Examples:
+Some frameworks enforce reproducibility by constricting the command to
+those inputs which are specified, without allowing any other inputs to
+be accessed. Examples:
 
   - Only make specified input files available to the job: Cromwell,
     nextflow
@@ -209,27 +215,27 @@ Related tasks: [One task cached](/tasks/one-task-cached)
 Each type of input can be cached at different levels:
 
   - Version (e.g. a docker tag)
-  - Modification date: snakemake (for data files), make, nextflow
+  - Modification date: Snakemake (for data files), make, nextflow
   - File size: nextflow
-  - Content: Cromwell, snakemake (for scripts, when specified), nextflow
+  - Content: Cromwell, Snakemake (for scripts, when specified), nextflow
     (when specified)
 
 Only the latter ensures full reproducibility and can be used for any
 type of input. However, for large data it can be computationally
 expensive to compare the content.
 
-Caching can be enabled by default (for example: snakemake), or enabled
+Caching can be enabled by default (for example: Snakemake), or enabled
 through the user interface (for example: nextflow).
 
 While developing, it can be useful to cache outputs even if some of the
-inputs have changed. For example, snakemake will by default not rerun a
+inputs have changed. For example, Snakemake will by default not rerun a
 job if a command has changed.
 
 ## Provenance
 
 > Keeping track of how an output was created
 
-Provenance can be useful for
+Provenance is necessary for
 
   - [reproducibility](#reproducibility): if you know how an output was
     produced, you can try to recreate the same conditions on another
@@ -237,7 +243,29 @@ Provenance can be useful for
   - [caching](#caching): if you know how an output was produced, you can
     also know whether it is outdated.
 
-Provenance can be defined for different types of input.
+Provenance (and reproducibility) is broken if one of the outputs can no
+longer be produced by the current set of inputs. There are several ways
+for this to happen:
+
+  - When a framework only looks at the latest modification date of a
+    file. A modification date can be easily changed, for example by
+    using version control.
+  - When (part of) a pipeline is executed in a local environment. This
+    can also happen, but to a lesser extent, within package manager
+    environments such as conda.
+  - When the pipeline uses unspecified inputs, and when the framework
+    does not prevent this.
+  - When the pipeline generates unspecified outputs, and when the
+    framework does not prevent this.
+  - When only part of the pipeline is rerun while other parts are
+    outdated.
+
+There are several ways to keep track of the origin of outputs:
+
+  - Writing a report every time the pipeline is ran: Snakemake.
+  - Keeping a history on which inputs were used to produce an output:
+    nextflow, cromwell. This history
+  - Copying the inputs
 
 ## Execution
 
@@ -281,7 +309,7 @@ To debug a particular job, it can be useful to enter the workflow with a
 shell at a particular point, with the complete environment and inputs
 available.
 
-<!--- snakemake python debug --->
+<!--- Snakemake python debug --->
 
 <!--- nextflow `bash .command.run` --->
 

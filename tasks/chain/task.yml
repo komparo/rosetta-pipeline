@@ -11,3 +11,5 @@ description: |
     cat A.txt B.txt > AB.txt
     cat AB.txt C.txt > ABC.txt
     ```
+concepts:
+    - "Pull vs push"

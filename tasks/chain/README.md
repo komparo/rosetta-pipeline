@@ -1,6 +1,9 @@
 
 <!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
 
+    ## Warning in readLines(file): incomplete final line found on 'tasks/chain/
+    ## task.yml'
+
 # Chain
 
 *Run a number of tasks, in which the input of one task depends on the

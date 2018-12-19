@@ -3,13 +3,14 @@
 
 # Alternative paths
 
-*Choose a different path depending on the output of one task*
+*Choose a different path depending on the output of previous jobs*
 
 -----
 
 Generate 10 random numbers from 1 to 10 and save to file 1.txt - 10.txt
-If the number is 1, write new year to \*\_result.txt Otherwise, write
-boring to \*\_result.txt
+If the number is 1, write `Happy new year!` to \*\_result.txt Otherwise,
+write `Boring!` to \*\_result.txt Choosing between the two paths has to
+be done by separate rules.
 
 Generating a random numbers in
     bash:
