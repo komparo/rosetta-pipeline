@@ -3,11 +3,13 @@ metadata:
   url: https://snakemake.readthedocs.io/en/stable/
   doi: 10.1093/bioinformatics/bty350
 
+
 specification:
   supported: 
     - snakemake
   notes:
     - CWL can run inside individual rules, instead of specifying the script or command
+
 
 inputs:
   types:
@@ -34,6 +36,7 @@ inputs:
     notes:
       - The complete working directory remains available during execution
 
+
 outputs:
   validation:
     supported: false
@@ -41,8 +44,8 @@ outputs:
     files:
       supported: true
     resources:
-      supported:
-        -
+      supported: true
+
 
 provenance:
   supported:
@@ -54,6 +57,7 @@ provenance:
     - Provenance is broken when scripts change and are not tracked
     - Provenance is broken with stochasticity
     - Provenance is broken when only part of the pipeline is rerun
+
 
 execution:
   type:
@@ -86,7 +90,7 @@ execution:
     supported:
       - memory
       - cpu
-  
+
 
 usability:
   interface:

@@ -1,4 +1,23 @@
-type:
-- pull
-wildcards: true
-language: python
+rules:
+  wildcards: true
+
+
+language: 
+  type: hybrid
+  general: python
+
+
+dag:
+  dependencies: data
+  type: pull
+  dynamic:
+    supported:
+      - number of inputs
+      - number of ouputs
+
+
+modularity:
+  supported:
+    - asis
+  notes:
+    - While subworkflows are supported by name, only their outputs are wrapped within a rule, not the inputs

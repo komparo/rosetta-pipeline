@@ -31,8 +31,9 @@ Luigi) and phases (martian).
 There are several ways to create individual jobs from a rule:
 
   - Wildcards within file names: make, Snakemake
-  - Specifying the inputs of each job: CWL
-  - Looping over inputs: WDL
+  - Explicitely specifying the inputs of each job: CWL
+  - Looping over all inputs/outputs: WDL, Snakemake
+  - Creating a job everytime a (set of) inputs is available: Nextflow.
 
 ### Language
 
@@ -66,11 +67,15 @@ is allowed almost anywhere in the case of Snakemake.
 
 ### Constructing the DAG
 
-Dependencies between jobs can be directly specified between the jobs
-themselves (examples: luigi) or between outputs and input (examples:
-Snakemake, nextflow, cwl). In the end, this produces a directed acyclic
-graph (DAG), which is executed starting from those jobs without any
-ingoing edges, and ends with those jobs without any outgoing edges.
+Dependencies between jobs can be directly specified:
+
+  - Between jobs, for examples: Luigi, Argo
+  - Between data objects by connecting inputs and outputs, for example:
+    Snakemake, nextflow, CWL
+
+In the end, this produces a directed acyclic graph (DAG), which is
+executed starting from those jobs without any ingoing edges, and ends
+with those jobs without any outgoing edges.
 
 #### Pull vs push
 
@@ -108,9 +113,9 @@ can work at different levels:
 
   - The module is included in the pipeline as-is. Examples: Snakemake
     (include). Related tasks:
-  - The module is included as a separate rule within the pipeline, with
-    its own input and output. Examples: Snakemake (subworkflows), WDL
-    (subworkflows). Related tasks:
+  - The module is included as a *subworkflow*, running within a separate
+    rule of the pipeline with its own input and output. Examples:
+    Snakemake (subworkflows), WDL (subworkflows). Related tasks:
 
 If the pipeline is specified in a general-purpose programming language,
 modularity of the pipeline is also possible within the language itself.
@@ -204,11 +209,11 @@ be accessed. Examples:
 
 ## Caching
 
-> jobs are not needlessly rerun when output is already available
+> Jobs are not needlessly rerun when output is already available
 
 Also known as *incrementality*
 
-Related tasks: [One task cached](/tasks/one-task-cached)
+Related tasks: [One task cached](/tasks/one-job-cached)
 
 ### Levels of caching
 

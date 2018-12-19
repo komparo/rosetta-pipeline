@@ -1,6 +1,6 @@
-name: One job
+name: Module as is
 description: |
-    _Run two jobs each as a module which is included in the main pipeline as is_
+    _Specify a job as a separate module, which is included as-is in the main pipeline_
 
     ---
 

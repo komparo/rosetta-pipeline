@@ -1,0 +1,21 @@
+rules:
+  wildcards: false
+
+
+language: 
+  type: hybrid
+  general: Groovy
+
+
+dag:
+  dependencies: data
+  type: push
+  dynamic:
+    supported:
+      - number of inputs
+      - number of ouputs
+      - alternative paths
+
+
+modularity:
+  supported: false

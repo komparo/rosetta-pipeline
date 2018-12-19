@@ -1,10 +1,10 @@
 
 <!-- Do not edit this by hand, this is automatically generated based on scripts/templates/task.Rmd -->
 
-# One job
+# Module as is
 
-*Run two jobs each as a module which is included in the main pipeline as
-is*
+*Specify a job as a separate module, which is included as-is in the main
+pipeline*
 
 -----
 
