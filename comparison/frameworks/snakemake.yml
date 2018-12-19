@@ -1,51 +1,101 @@
-name: snakemake
+metadata:
+  name: snakemake
+  url: https://snakemake.readthedocs.io/en/stable/
+  doi: 10.1093/bioinformatics/bty350
 
 specification:
-  specifications: 
+  supported: 
     - snakemake
-  notes: >
-    CWL workflows can run inside individual rules, instead of specifying the script or command
-
-incrementality:
-  input:
-    data: 
-      levels: modification date
-    scripts: 
-      levels: content
-    parameters: 
-      levels: content
-    environment: 
-      levels: version
-  default: true
   notes:
-    - Not default for scripts
+    - CWL can run inside individual rules, instead of specifying the script or command
 
-environment:
-  supported:
-    - docker
-    - singularity
-    - conda
-  notes:
-    - Docker environments are converted to singularity
-    - Conda environments can be combined within singularity
+inputs:
+  types:
+    file: 
+      supported: true
+    command:
+      notes:
+        - Main support for shell, python and R
+        - Other languages can be run through shell
+    environment:
+      supported:
+        - docker
+        - singularity
+        - conda
+      notes:
+        - Docker containers are first converted to singularity
+        - A conda environment can be installed inside singularity
+    random_state: 
+      supported: false
+    parameter: 
+      supported: true
+  constriction: 
+    supported: false
+    notes:
+      - The complete working directory remains available during execution
 
-interface:
-  supported:
-    - cli
+outputs:
+  validation:
+    supported: false
+  types:
+    files:
+      supported: true
+    resources:
+      supported:
+        -
 
 provenance:
+  supported:
+    - report
+  notes:
+    - Provenance is broken when running in the local environment
+    - Provenance can be broken when running in a conda environment
+    - Provenance is broken if timestamps change
+    - Provenance is broken when scripts change and are not tracked
+    - Provenance is broken with stochasticity
+    - Provenance is broken when only part of the pipeline is rerun
 
 execution:
-  supported:
-    -
-
-
-validation:
-
-
-development:
-  debugging:
+  type:
     supported:
+      - on-demand
+  scheduling:
+    supported:
+      - Kubernetes
+      - Sun Grid Engine
+      - Univa Grid Engine
+      - Condor
+      - PBS / Torque
+      - LSF
+    notes:
+      - Custom batch systems are supported by providing the appropriate commandline argument
+  storage:
+    supported:
+      - shared
+      - Amazon S3
+      - Google Cloud Storage
+      - FTP
+      - Dropbox
+      - XRootD
+      - NCBI Entrez
+      - WebDAV
+      - GFAL
+      - GridFTP
+      - European Genome-phenome Archive
+  resources:
+    supported:
+      - memory
+      - cpu
+  
+
+usability:
+  interface:
+    - cli
+  development:
+    supported: false
+  debugging:
+    supported: true
     notes:
       - Easy for python
       - More difficult for R, requires a `save.image` call
+      - Not supported for shell or other languages
